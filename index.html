@@ -106,9 +106,51 @@ nav a:active,nav a.selected{
   transform:translateY(0);
 }
 nav a.selected:hover{color:#172333!important;background:linear-gradient(145deg,#eef1f4,#d8dee6)!important}
+
+/* Premium product-first layout and responsive navigation */
+.skip-link{position:absolute;top:8px;right:12px;z-index:1000;padding:9px 14px;border-radius:9px;background:#f0c477;color:#142238;transform:translateY(-160%);font-weight:800}
+.skip-link:focus{transform:translateY(0)}
+header{padding:13px 0 10px}
+nav{display:flex;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;white-space:nowrap;scrollbar-width:none;overscroll-behavior-inline:contain;padding:7px 2px 9px;gap:7px}
+nav::-webkit-scrollbar{display:none}
+nav a{flex:0 0 auto}
+.hero{padding-top:64px;padding-bottom:48px}
+.hero-product-shot{min-width:0;padding:13px;border:1px solid #3b5672;border-radius:23px;background:linear-gradient(145deg,#1b3049,#0c192a);box-shadow:0 25px 70px #0006}
+.product-shot-top{display:flex;justify-content:space-between;gap:12px;padding:3px 5px 11px;color:#c8d6e6;font-size:.8rem;font-weight:750}
+.hero-product-shot a{display:block;overflow:hidden;border:1px solid #3b5068;border-radius:14px;background:#08111d}
+.hero-product-shot img{display:block;width:100%;height:clamp(280px,39vw,470px);object-fit:contain;object-position:center;background:#08111d}
+.hero-product-shot p{margin:8px 5px 0;color:#aebfd1;font-size:.76rem;text-align:center}
+#preview,#preview-en{padding-top:35px}
+.preview-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.preview-card{transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.preview-card:hover{transform:translateY(-4px);border-color:#718ba7;box-shadow:0 18px 38px #0004}
+.preview-card img{background:#0a1422}
+.section{scroll-margin-top:145px}
+.section-head{max-width:880px}
+.card,.step{height:100%}
+@media(max-width:850px){
+ .hero{padding-top:43px;gap:28px}
+ nav{margin-inline:-2px}
+ .hero-product-shot img{height:clamp(260px,65vw,420px)}
+ .section{scroll-margin-top:125px}
+}
+@media(max-width:560px){
+ header{padding:9px 0 7px}
+ .topline{align-items:center}
+ .brand{font-size:1.35rem}
+ nav{gap:6px}
+ nav a{font-size:.76rem;padding:7px 10px}
+ .hero{padding:35px 0 30px}
+ .hero h1{font-size:clamp(1.9rem,8vw,2.45rem)}
+ .hero-product-shot{padding:9px;border-radius:17px}
+ .hero-product-shot img{height:330px}
+ .product-shot-top{font-size:.72rem}
+ .preview-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .preview-card img{height:230px}
+}
 </style>
 </head>
-<body><svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+<body><a class="skip-link" href="#content-fa">رفتن به محتوای اصلی</a><svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
 <symbol id="nm-edit" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/></symbol>
 <symbol id="nm-journal" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21Z"/><path d="M4 5.5v13A2.5 2.5 0 0 1 6.5 16H20M8 7h8M8 10h8"/></symbol>
 <symbol id="nm-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 4.8-4.8 2.2 2.2-4.8Z"/></symbol>
@@ -130,15 +172,13 @@ nav a.selected:hover{color:#172333!important;background:linear-gradient(145deg,#
 <header>
 <div class="topline"><div><div class="brand">نملو <span>Namello</span></div><div class="tagline" id="tagline">ثبت تجربه، شناخت عملکرد، رشد آگاهانه</div></div>
 <div class="langswitch" role="group" aria-label="انتخاب زبان"><button id="faBtn" class="active" type="button" lang="fa" aria-pressed="true">فارسی</button><button id="enBtn" type="button" lang="en" aria-pressed="false">English</button></div></div>
-<nav id="nav-fa" aria-label="ناوبری اصلی"><a href="#symbol-story">فلسفه نماد</a><a href="#preview">تصاویر برنامه</a><a href="#journey">مسیر کار</a><a href="#journal">ژورنال</a><a href="#distinctive">قابلیت‌های متمایز</a><a href="#dashboard">داشبورد</a><a href="#finance">لایه مالی</a><a href="#sessions">جلسات بازار</a><a href="#news">لایه خبر</a><a href="#tools">ابزارها</a><a href="#settings">تنظیمات و ویجت</a><a href="#pro">Namello Pro</a><a href="#faq">پرسش‌ها</a><a href="#contact">تماس</a></nav>
-<nav id="nav-en" aria-label="Main navigation" hidden><a href="#symbol-story-en">Our symbol</a><a href="#preview-en">App preview</a><a href="#journey-en">How it works</a><a href="#journal-en">Journal</a><a href="#distinctive-en">Key features</a><a href="#dashboard-en">Dashboard</a><a href="#finance-en">Financial</a><a href="#sessions-en">Market sessions</a><a href="#news-en">News</a><a href="#tools-en">Tools</a><a href="#settings-en">Settings & widget</a><a href="#pro-en">Namello Pro</a><a href="#faq-en">FAQ</a><a href="#contact-en">Contact</a></nav>
+<nav id="nav-fa" aria-label="ناوبری اصلی"><a href="#preview">نمای برنامه</a><a href="#journey">مسیر کار</a><a href="#distinctive">قابلیت‌ها</a><a href="#dashboard">داشبورد</a><a href="#sessions">جلسات بازار</a><a href="#news">اخبار</a><a href="#settings">تنظیمات</a><a href="#pro">Namello Pro</a><a href="#faq">پرسش‌ها</a><a href="#contact">تماس</a></nav>
+<nav id="nav-en" aria-label="Main navigation" hidden><a href="#preview-en">Product</a><a href="#journey-en">How it works</a><a href="#distinctive-en">Features</a><a href="#dashboard-en">Dashboard</a><a href="#sessions-en">Sessions</a><a href="#news-en">News</a><a href="#settings-en">Settings</a><a href="#pro-en">Namello Pro</a><a href="#faq-en">FAQ</a><a href="#contact-en">Contact</a></nav>
 </header>
 
 <main id="content-fa">
-<section class="hero"><div><div class="eyebrow">ژورنال معاملاتی برای بازارهای مالی</div><h1>هر معامله یک تجربه است؛<br>هر تجربه فرصتی برای رشد</h1><p>Namello فضایی منظم برای ثبت معاملات، مرور تصمیم‌ها و شناخت بهتر عملکرد معاملاتی شماست. سوابق خود را از حافظه بیرون بیاورید، آن‌ها را ثبت کنید و با نگاهی روشن‌تر مسیر معامله‌گری‌تان را بررسی کنید.</p><div class="actions"><a class="btn primary" href="#distinctive">آشنایی با قابلیت‌های متمایز</a><a class="btn" href="mailto:namellotradingjournal@gmail.com">ارتباط با ما</a></div><div class="hero-highlights" aria-label="مزیت‌های اصلی نملو"><div class="hero-highlight"><b>⚡ ثبت سریع و کامل</b><span>جزئیات بیشتر، در زمان کمتر</span></div><div class="hero-highlight"><b>🖼️ استخراج از تصویر</b><span>کمک به ورود پارامترهای معامله</span></div><div class="hero-highlight"><b>🎯 تحلیل احتمال موفقیت</b><span>برآورد آماری بر پایه سوابق</span></div></div></div>
-<div class="dashboard-art"><div class="art-head"><span>نملو / ژورنال معاملاتی</span><span>۰۱ — نمای کلی</span></div><div class="art-title">از ثبت تا بازبینی</div><div class="art-value">با دیدی روشن معامله کنید</div><div class="chart"><i style="height:35%"></i><i style="height:52%"></i><i style="height:43%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:91%"></i><i style="height:77%"></i></div><div class="art-foot"><div class="mini"><b>ژورنال</b>ثبت تجربه‌ها</div><div class="mini"><b>بینش‌ها</b>شناخت عملکرد</div><div class="mini"><b>جلسات</b>زمان‌بندی بازار</div></div><p class="disclaimer">نمای گرافیکی مفهومی؛ تصویر واقعی از رابط کاربری اپلیکیشن نیست.</p></div></section>
-
-<section class="section" id="symbol-story"><div class="section-head"><div class="kicker">فلسفه نماد نملو</div><h2>ترکیبی از چابکی خرگوش و پایداری حلزون</h2><p class="lead">نماد نملو از همراهی دو ویژگی الهام گرفته است: خرگوش یادآور سرعت، هوشیاری و واکنش به‌موقع است؛ حلزون نماد صبر، استمرار و حرکت پیوسته، حتی با گام‌های کوچک. کنار هم، این دو تصویر تعادلی را روایت می‌کنند که در معامله‌گری اهمیت دارد: سریع و آماده بودن، اما نه شتاب‌زده؛ صبور و منظم ماندن، اما نه متوقف. نملو می‌خواهد یادآور همین مسیر باشد؛ تصمیم‌گیری آگاهانه، ثبت تجربه و پیشرفت قدم‌به‌قدم.</p></div></section>
+<section class="hero"><div><div class="eyebrow">ژورنال معاملاتی برای بازارهای مالی</div><h1>هر معامله یک تجربه است؛<br>هر تجربه فرصتی برای رشد</h1><p>Namello فضایی منظم برای ثبت معاملات، مرور تصمیم‌ها و شناخت بهتر عملکرد معاملاتی شماست. سوابق خود را از حافظه بیرون بیاورید، آن‌ها را ثبت کنید و با نگاهی روشن‌تر مسیر معامله‌گری‌تان را بررسی کنید.</p><div class="actions"><a class="btn primary" href="#preview">مشاهده محیط واقعی برنامه</a><a class="btn" href="#journey">آشنایی با روش کار</a></div><div class="hero-highlights" aria-label="مزیت‌های اصلی نملو"><div class="hero-highlight"><b>⚡ ثبت سریع و کامل</b><span>جزئیات بیشتر، در زمان کمتر</span></div><div class="hero-highlight"><b>🖼️ استخراج از تصویر</b><span>کمک به ورود پارامترهای معامله</span></div><div class="hero-highlight"><b>🎯 تحلیل احتمال موفقیت</b><span>برآورد آماری بر پایه سوابق</span></div></div></div>
+<div class="hero-product-shot"><div class="product-shot-top"><span>نمای واقعی از Namello</span><span>داشبورد</span></div><a href="assets/screenshots/dashboard.jpg" target="_blank" rel="noopener" aria-label="مشاهده تصویر کامل داشبورد Namello"><img src="assets/screenshots/dashboard.jpg" alt="نمای واقعی داشبورد اپلیکیشن Namello" fetchpriority="high"></a><p>برای مشاهده جزئیات، تصویر را باز کنید.</p></div></section>
 <section class="section" id="preview"><div class="section-head"><div class="kicker">پیش‌نمایش برنامه</div><h2>نمایی از محیط واقعی نملو</h2><p class="lead">با صفحات اصلی برنامه آشنا شوید. برای مشاهده هر تصویر در اندازه بزرگ‌تر، روی آن بزنید.</p></div><div class="preview-grid">
 <figure class="preview-card"><a href="assets/screenshots/welcome.jpg" target="_blank" rel="noopener"><img src="assets/screenshots/welcome.jpg" alt="صفحه خوشامدگویی Namello" loading="lazy"></a><figcaption>خوشامدگویی</figcaption></figure>
 <figure class="preview-card"><a href="assets/screenshots/dashboard.jpg" target="_blank" rel="noopener"><img src="assets/screenshots/dashboard.jpg" alt="داشبورد Namello" loading="lazy"></a><figcaption>داشبورد</figcaption></figure>
@@ -148,6 +188,10 @@ nav a.selected:hover{color:#172333!important;background:linear-gradient(145deg,#
 <figure class="preview-card"><a href="assets/screenshots/exports.jpg" target="_blank" rel="noopener"><img src="assets/screenshots/exports.jpg" alt="بخش خروجی‌های Namello" loading="lazy"></a><figcaption>خروجی‌ها</figcaption></figure>
 <figure class="preview-card"><a href="assets/screenshots/settings.jpg" target="_blank" rel="noopener"><img src="assets/screenshots/settings.jpg" alt="تنظیمات Namello" loading="lazy"></a><figcaption>تنظیمات</figcaption></figure>
 </div><p class="preview-note">تصاویر، نمایی از محیط برنامه هستند؛ امکانات قابل مشاهده ممکن است بر اساس نسخه و سطح دسترسی متفاوت باشند.</p></section>
+
+
+<section class="section" id="symbol-story"><div class="section-head"><div class="kicker">فلسفه نماد نملو</div><h2>ترکیبی از چابکی خرگوش و پایداری حلزون</h2><p class="lead">نماد نملو از همراهی دو ویژگی الهام گرفته است: خرگوش یادآور سرعت، هوشیاری و واکنش به‌موقع است؛ حلزون نماد صبر، استمرار و حرکت پیوسته، حتی با گام‌های کوچک. کنار هم، این دو تصویر تعادلی را روایت می‌کنند که در معامله‌گری اهمیت دارد: سریع و آماده بودن، اما نه شتاب‌زده؛ صبور و منظم ماندن، اما نه متوقف. نملو می‌خواهد یادآور همین مسیر باشد؛ تصمیم‌گیری آگاهانه، ثبت تجربه و پیشرفت قدم‌به‌قدم.</p></div></section>
+
 <section class="section" id="journey"><div class="section-head"><div class="kicker">یک روال ساده، یک دید روشن‌تر</div><h2>با نملو چگونه پیش می‌روید؟</h2><p class="lead">نملو برای همراهی با چرخه‌ای پیوسته طراحی شده است: ثبت اطلاعات، مشاهده تصویر کلی، بررسی جزئیات و یادگیری از تجربه‌ها.</p></div><div class="steps"><div class="step"><span class="n">۱</span><b>ثبت کنید</b><p>معاملات و تجربه‌های خود را در ژورنال نگهداری کنید.</p></div><div class="step"><span class="n">۲</span><b>مشاهده کنید</b><p>از داشبورد برای دیدن نمای کلی فعالیت و عملکرد کمک بگیرید.</p></div><div class="step"><span class="n">۳</span><b>بررسی کنید</b><p>نتایج مالی، جلسات بازار و سوابق خود را مرور کنید.</p></div><div class="step"><span class="n">۴</span><b>یاد بگیرید</b><p>نقاط قوت و زمینه‌های قابل بهبود را از تجربه‌ها استخراج کنید.</p></div></div></section>
 <section class="section" id="journal"><div class="section-head"><div class="kicker">۰۱ / حافظه معاملاتی شما</div><h2>ژورنال معاملاتی؛ حافظه منظم معامله‌گر</h2><p class="lead">معامله‌ای که ثبت نشود، ممکن است به‌مرور به خاطره‌ای مبهم تبدیل شود. ژورنال نملو برای نگهداری سوابق و آسان‌تر کردن بازگشت به تصمیم‌ها و نتایج گذشته است.</p></div><div class="grid"><article class="card"><div class="icon icon-edit" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#nm-edit"></use></svg></div><h3>ثبت تجربه‌های معاملاتی</h3><p>معاملات را ثبت کنید تا اطلاعات و نتیجه هر تجربه در کنار سوابق دیگر قرار بگیرد و بررسی گذشته تنها به حافظه وابسته نباشد.</p></article><article class="card"><div class="icon icon-journal" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#nm-journal"></use></svg></div><h3>مدیریت سوابق</h3><p>به معاملات ثبت‌شده بازگردید و فعالیت خود را در طول زمان مرور کنید؛ تاریخچه‌ای مرتب از مسیر معاملاتی خود بسازید.</p></article><article class="card"><div class="icon icon-compass" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#nm-compass"></use></svg></div><h3>یادگیری از برد و باخت</h3><p>بررسی تجربه‌های موفق و ناموفق می‌تواند به شناسایی عادت‌ها و خطاهای تکرارشونده کمک کند.</p></article><article class="card"><div class="icon icon-refresh" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#nm-refresh"></use></svg></div><h3>عادت بازبینی</h3><p>ثبت و مرور را به بخشی از روال کاری تبدیل کنید تا ارزیابی تصمیم‌ها به کاری منظم و قابل پیگیری تبدیل شود.</p></article></div></section>
 <section class="section" id="distinctive"><div class="section-head"><div class="kicker">مزیت‌های نملو</div><h2>قابلیت‌های متمایز؛ فراتر از یک ژورنال معاملاتی</h2><p class="lead">نملو تلاش می‌کند فاصله میان انجام معامله، ثبت جزئیات و تحلیل نتیجه را کوتاه کند؛ تا اطلاعات ارزشمند معامله با کمترین اصطکاک در دسترس بررسی و یادگیری باشد.</p></div><div class="grid">
@@ -183,8 +227,6 @@ nav a.selected:hover{color:#172333!important;background:linear-gradient(145deg,#
 <main id="content-en" hidden>
 <section class="hero"><div><div class="eyebrow">A TRADING JOURNAL FOR FINANCIAL MARKETS</div><h1>Every trade is an experience.<br>Every experience is a chance to grow.</h1><p>Namello gives you an organized space to record trades, revisit decisions, and better understand your trading performance. Move beyond memory and momentary impressions: keep a clear record and review your trading journey with greater perspective.</p><div class="actions"><a class="btn primary" href="#distinctive-en">Explore key capabilities</a><a class="btn" href="mailto:namellotradingjournal@gmail.com">Contact our team</a></div><div class="hero-highlights" aria-label="Namello key advantages"><div class="hero-highlight"><b>⚡ Fast, detailed entry</b><span>Capture more in less time</span></div><div class="hero-highlight"><b>🖼️ Image extraction</b><span>Assist with trade parameter entry</span></div><div class="hero-highlight"><b>🎯 Success probability analysis</b><span>Statistical estimates from history</span></div></div></div>
 <div class="dashboard-art"><div class="art-head"><span>NAMELLO / TRADING JOURNAL</span><span>01 — OVERVIEW</span></div><div class="art-title">From recording to review</div><div class="art-value">Trade with clarity.</div><div class="chart"><i style="height:35%"></i><i style="height:52%"></i><i style="height:43%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:91%"></i><i style="height:77%"></i></div><div class="art-foot"><div class="mini"><b>Journal</b>Capture experiences</div><div class="mini"><b>Insights</b>Understand performance</div><div class="mini"><b>Sessions</b>Market timing</div></div><p class="disclaimer">Conceptual graphic, not an actual screenshot of the app.</p></div></section>
-
-<section class="section" id="symbol-story-en"><div class="section-head"><div class="kicker">THE MEANING BEHIND THE NAMELLO SYMBOL</div><h2>A blend of the rabbit's agility and the snail's persistence</h2><p class="lead">Namello's symbol brings together two complementary qualities. The rabbit stands for speed, alertness, and timely action; the snail represents patience, consistency, and steady progress, even in small steps. Together, they express a balance that matters in trading: be ready and responsive without rushing, and stay patient and disciplined without standing still. That is the path Namello aims to represent—thoughtful decisions, recorded experience, and continuous step-by-step improvement.</p></div></section>
 <section class="section" id="preview-en"><div class="section-head"><div class="kicker">APP PREVIEW</div><h2>Explore the Namello interface</h2><p class="lead">Take a look at the app's main screens. Select any image to open it at full size.</p></div><div class="preview-grid">
 <figure class="preview-card"><a href="assets/screenshots/welcome.jpg" target="_blank" rel="noopener"><img src="assets/screenshots/welcome.jpg" alt="Namello welcome screen" loading="lazy"></a><figcaption>Welcome</figcaption></figure>
 <figure class="preview-card"><a href="assets/screenshots/dashboard.jpg" target="_blank" rel="noopener"><img src="assets/screenshots/dashboard.jpg" alt="Namello dashboard" loading="lazy"></a><figcaption>Dashboard</figcaption></figure>
@@ -194,6 +236,10 @@ nav a.selected:hover{color:#172333!important;background:linear-gradient(145deg,#
 <figure class="preview-card"><a href="assets/screenshots/exports.jpg" target="_blank" rel="noopener"><img src="assets/screenshots/exports.jpg" alt="Namello exports" loading="lazy"></a><figcaption>Exports</figcaption></figure>
 <figure class="preview-card"><a href="assets/screenshots/settings.jpg" target="_blank" rel="noopener"><img src="assets/screenshots/settings.jpg" alt="Namello settings" loading="lazy"></a><figcaption>Settings</figcaption></figure>
 </div><p class="preview-note">These screenshots show the app interface. Visible features may vary by app version and access level.</p></section>
+
+
+<section class="section" id="symbol-story-en"><div class="section-head"><div class="kicker">THE MEANING BEHIND THE NAMELLO SYMBOL</div><h2>A blend of the rabbit's agility and the snail's persistence</h2><p class="lead">Namello's symbol brings together two complementary qualities. The rabbit stands for speed, alertness, and timely action; the snail represents patience, consistency, and steady progress, even in small steps. Together, they express a balance that matters in trading: be ready and responsive without rushing, and stay patient and disciplined without standing still. That is the path Namello aims to represent—thoughtful decisions, recorded experience, and continuous step-by-step improvement.</p></div></section>
+
 <section class="section" id="journey-en"><div class="section-head"><div class="kicker">A SIMPLE ROUTINE. A CLEARER VIEW.</div><h2>How does Namello fit your workflow?</h2><p class="lead">Namello is designed around a continuous cycle: record information, see the bigger picture, review the details, and learn from experience.</p></div><div class="steps"><div class="step"><span class="n">1</span><b>Record</b><p>Keep your trades and trading experiences in your journal.</p></div><div class="step"><span class="n">2</span><b>Observe</b><p>Use the dashboard to see an overview of your activity and performance.</p></div><div class="step"><span class="n">3</span><b>Review</b><p>Revisit financial results, market sessions, and your trading history.</p></div><div class="step"><span class="n">4</span><b>Learn</b><p>Identify strengths and areas for improvement from your own experience.</p></div></div></section>
 <section class="section" id="journal-en"><div class="section-head"><div class="kicker">01 / YOUR TRADING MEMORY</div><h2>Trading Journal — a structured memory for traders</h2><p class="lead">An unrecorded trade can become a vague memory. Namello's journal helps you keep a history of your trades and makes it easier to revisit past decisions and outcomes.</p></div><div class="grid"><article class="card"><div class="icon icon-edit" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#nm-edit"></use></svg></div><h3>Record trading experiences</h3><p>Log trades so the details and outcomes of each experience stay alongside your other records—not just in your memory.</p></article><article class="card"><div class="icon icon-journal" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#nm-journal"></use></svg></div><h3>Manage your history</h3><p>Return to recorded trades and review your activity over time. Build an organized history of your trading journey.</p></article><article class="card"><div class="icon icon-compass" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#nm-compass"></use></svg></div><h3>Learn from wins and losses</h3><p>Reviewing both successful and unsuccessful experiences can help reveal habits and recurring mistakes.</p></article><article class="card"><div class="icon icon-refresh" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#nm-refresh"></use></svg></div><h3>Build a review habit</h3><p>Make recording and reviewing part of your routine so evaluating decisions becomes consistent and traceable.</p></article></div></section>
 <section class="section" id="distinctive-en"><div class="section-head"><div class="kicker">THE NAMELLO ADVANTAGE</div><h2>Distinctive capabilities — beyond a trading journal</h2><p class="lead">Namello aims to shorten the path between placing a trade, recording its details, and reviewing its outcome—so useful information is easier to capture, examine, and learn from.</p></div><div class="grid">
@@ -253,6 +299,21 @@ document.querySelectorAll('nav a').forEach(link=>{
     link.classList.add('selected');
   });
 });
+if('IntersectionObserver' in window){
+ const targets=[...document.querySelectorAll('#content-fa section[id],#content-en section[id]')];
+ const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+   if(!entry.isIntersecting)return;
+   const id=entry.target.id;
+   document.querySelectorAll('nav:not([hidden]) a').forEach(link=>{
+    const active=link.getAttribute('href')==='#'+id;
+    link.classList.toggle('selected',active);
+    if(active)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');
+   });
+  });
+ },{rootMargin:'-22% 0px -68% 0px',threshold:0});
+ targets.forEach(target=>observer.observe(target));
+}
 
 faBtn.addEventListener('click',()=>setLanguage('fa'));
 enBtn.addEventListener('click',()=>setLanguage('en'));
