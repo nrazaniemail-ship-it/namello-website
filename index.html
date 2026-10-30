@@ -96,6 +96,16 @@ nav a:focus-visible{outline:2px solid var(--nav-accent);outline-offset:3px}
 .card .icon-news,.card .icon-bell,.card .icon-clock{color:#8fe0d9}
 @media(max-width:850px){nav{gap:6px}nav a{font-size:.78rem;padding:6px 9px}}
 @media(max-width:560px){nav{gap:6px}nav a{font-size:.75rem;padding:6px 8px;border-radius:9px}}
+
+/* Selected navigation item: soft light gray, while keeping the palette on idle items */
+nav a:active,nav a.selected{
+  color:#172333!important;
+  background:linear-gradient(145deg,#e5e9ee,#cfd6df)!important;
+  border-color:#f0f2f5!important;
+  box-shadow:0 2px 10px #0003,inset 0 1px 0 #fff!important;
+  transform:translateY(0);
+}
+nav a.selected:hover{color:#172333!important;background:linear-gradient(145deg,#eef1f4,#d8dee6)!important}
 </style>
 </head>
 <body><svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
@@ -235,6 +245,15 @@ faBtn.setAttribute('aria-pressed',String(!english));enBtn.setAttribute('aria-pre
 tagline.textContent=english?'Record experiences. Understand performance. Grow with clarity.':'ثبت تجربه، شناخت عملکرد، رشد آگاهانه';
 try{localStorage.setItem('namello-language',lang)}catch(e){}
 }
+
+document.querySelectorAll('nav a').forEach(link=>{
+  link.addEventListener('click',()=>{
+    const nav=link.closest('nav');
+    nav.querySelectorAll('a').forEach(item=>item.classList.remove('selected'));
+    link.classList.add('selected');
+  });
+});
+
 faBtn.addEventListener('click',()=>setLanguage('fa'));
 enBtn.addEventListener('click',()=>setLanguage('en'));
 let saved='fa';try{saved=localStorage.getItem('namello-language')||'fa'}catch(e){}
