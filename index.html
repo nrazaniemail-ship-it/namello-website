@@ -148,6 +148,65 @@ nav a{flex:0 0 auto}
  .preview-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
  .preview-card img{height:230px}
 }
+
+/* Namello color-system refinement: consistent brand hierarchy and accessible contrast */
+:root{
+  color-scheme:dark;
+  --bg:#0a1220;
+  --surface:#111e30;
+  --surface2:#192a40;
+  --line:#3b506a;
+  --text:#f4f7fc;
+  --muted:#c2cedc;
+  --gold:#f2c879;
+  --mint:#8be2c3;
+  --blue:#a7caff;
+  --positive:#8be2c3;
+  --warning:#f2c879;
+  --negative:#ff9b9b;
+  --info:#a7caff;
+  --shadow:0 22px 65px #0007;
+}
+body{background:radial-gradient(ellipse at 12% 18%,#1c385522 0,transparent 34%),radial-gradient(ellipse at 88% 52%,#1c5a4a12 0,transparent 32%),var(--bg);color:var(--text)}
+a{color:var(--mint)}
+a:hover{color:var(--gold)}
+.lead,.card p,.step p,.faq details p,.pro p,.hero p{color:var(--muted)}
+footer,.tagline,.art-head,.preview-note,.disclaimer{color:#b8c6d8}
+.step,.card,.preview-card{border-color:#354b65}
+.step:hover,.card:hover,.preview-card:hover{border-color:#7891ad}
+header{border-bottom-color:#3b506a}
+.langswitch{background:#142238;border-color:#435873}
+.langswitch button{color:#d1dbea}
+.langswitch button.active{background:var(--gold);color:#172333}
+.btn:not(.primary){color:var(--text);background:#17283d;border-color:#516985}
+.btn:not(.primary):hover{background:#223a55;border-color:#9bb6d4;color:#fff}
+.primary{background:var(--gold);color:#172333;border-color:var(--gold)}
+.primary:hover{background:#ffda98;color:#172333}
+nav a{
+  --nav-accent:var(--mint);
+  color:#edf5ff;
+  border-color:#45627c;
+  background:linear-gradient(145deg,#1a3046,#122238);
+}
+nav a:nth-child(n){--nav-accent:var(--mint)}
+nav a:hover{background:linear-gradient(145deg,#24483f,#172d3b);border-color:var(--mint)}
+nav a.selected,nav a:active{background:#e2e8ef!important;color:#172333!important;border-color:#fff!important}
+.card .icon{background:#183b3b;color:#9ce8d0;border-color:#397466}
+.card .icon-image,.card .icon-chart,.card .icon-trend{background:#1c3551;color:#b4d2ff;border-color:#46688e}
+.card .icon-target,.card .icon-zap{background:#44351f;color:#ffda98;border-color:#856a42}
+.card .icon-brain,.card .icon-puzzle{background:#352c4d;color:#d5c2ff;border-color:#66558c}
+.card .icon-news,.card .icon-bell,.card .icon-clock{color:#9ce8e2}
+.symbol-story .section-head{border-color:#766343}
+.pro{border-color:#806b48}
+.pro-points span{color:#f5dfb5;border-color:#806b48}
+.contact{background:#152941;border-color:#435873}
+.faq details{background:var(--surface);border-color:#354b65}
+.faq summary{color:var(--gold)}
+.skip-link{background:var(--gold);color:#172333}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+::selection{background:#b4ead8;color:#102333}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
 </style>
 </head>
 <body><a class="skip-link" href="#content-fa">رفتن به محتوای اصلی</a><svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
