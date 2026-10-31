@@ -590,8 +590,8 @@ setLanguage(saved);
         }
         rendered++;
         priceEl.textContent=numberFormat(symbol,Number(quote.price));
-        const change=Number(quote.percentChange);
-        const absolute=Number(quote.change);
+        const change=quote.percentChange===null||quote.percentChange===undefined?NaN:Number(quote.percentChange);
+        const absolute=quote.change===null||quote.change===undefined?NaN:Number(quote.change);
         if(Number.isFinite(change)){
           const sign=change>0?'+':'';
           changeEl.textContent=(Number.isFinite(absolute)?(absolute>0?'+':'')+numberFormat(symbol,absolute)+' · ':'')+sign+numberFormat(symbol,change)+'%';
