@@ -545,6 +545,85 @@ html[data-theme="light"] .radar-flow-connectors .ribbon-head{fill:#087f68;stroke
 html[data-theme="light"] .radar-title-mark{filter:drop-shadow(0 2px 3px #26384b20)}
 @media(max-width:560px){.header-tools{gap:6px}.theme-toggle{min-height:35px;padding:6px 9px;font-size:.72rem}.theme-toggle-label{display:none}}
 
+
+/* Forex Factory-inspired product navigation: flat tabs, persistent and mobile-consistent */
+header{
+  padding:10px 0 0!important;
+  background:var(--surface)!important;
+  border-bottom:1px solid var(--line)!important;
+  box-shadow:0 3px 14px #00000012!important;
+}
+.topline{margin-bottom:8px!important}
+nav[id^="nav-"]{
+  display:flex;
+  flex-wrap:nowrap;
+  align-items:stretch;
+  gap:2px!important;
+  width:100%;
+  margin:0!important;
+  padding:0 0 0!important;
+  overflow-x:auto;
+  overflow-y:hidden;
+  white-space:nowrap;
+  scrollbar-width:thin;
+  scrollbar-color:var(--line) transparent;
+  overscroll-behavior-inline:contain;
+  border-top:1px solid var(--line);
+}
+nav[id^="nav-"]::-webkit-scrollbar{height:3px}
+nav[id^="nav-"]::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+nav[id^="nav-"] a{
+  position:relative;
+  display:inline-flex;
+  flex:0 0 auto;
+  align-items:center;
+  justify-content:center;
+  min-height:43px;
+  padding:8px 15px!important;
+  margin:0!important;
+  border:0!important;
+  border-radius:0!important;
+  border-bottom:3px solid transparent!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:var(--muted)!important;
+  font-size:.86rem!important;
+  font-weight:700!important;
+  transform:none!important;
+  transition:color .18s ease,background .18s ease,border-color .18s ease!important;
+}
+nav[id^="nav-"] a:hover{
+  color:var(--text)!important;
+  background:var(--surface2)!important;
+  border-bottom-color:var(--blue)!important;
+}
+nav[id^="nav-"] a.selected,
+nav[id^="nav-"] a[aria-current="location"]{
+  color:var(--text)!important;
+  background:var(--surface2)!important;
+  border-bottom-color:var(--gold)!important;
+  box-shadow:none!important;
+}
+nav[id^="nav-"] a:focus-visible{outline:2px solid var(--blue)!important;outline-offset:-3px}
+html[data-theme="light"] header{background:#f4f7fa!important;border-bottom-color:#cbd5df!important}
+html[data-theme="light"] nav[id^="nav-"]{border-top-color:#d5dde6}
+html[data-theme="light"] nav[id^="nav-"] a{color:#46566a!important}
+html[data-theme="light"] nav[id^="nav-"] a:hover,
+html[data-theme="light"] nav[id^="nav-"] a.selected,
+html[data-theme="light"] nav[id^="nav-"] a[aria-current="location"]{color:#172b43!important;background:#e5ebf1!important}
+@media(max-width:850px){
+ header{padding-top:8px!important}
+ nav[id^="nav-"] a{min-height:41px;padding:7px 13px!important;font-size:.82rem!important}
+}
+@media(max-width:560px){
+ header{padding-top:7px!important}
+ .topline{gap:8px!important}
+ .brand{font-size:1.25rem}
+ .header-tools{gap:5px}
+ nav[id^="nav-"]{margin-inline:0!important}
+ nav[id^="nav-"] a{min-height:40px;padding:6px 12px!important;font-size:.8rem!important}
+}
+
 </style>
 </head>
 <body><a class="skip-link" href="#content-fa">رفتن به محتوای اصلی</a><svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
