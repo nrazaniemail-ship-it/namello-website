@@ -417,6 +417,26 @@ html[dir="ltr"] .market-strip-head{letter-spacing:.06em}html[dir="ltr"] .pair-ti
 @media(max-width:580px){.radar-flow{padding:15px;border-radius:18px}.radar-flow-grid{grid-template-columns:1fr;gap:13px}.radar-node{padding:16px}.radar-node:after,.radar-node:nth-child(2n):after,.radar-node:nth-child(3n):after{content:"↓";bottom:-18px}.radar-node:nth-child(9):after{content:""}.radar-branches{grid-template-columns:1fr}.radar-branches>div:last-child{grid-column:auto}.radar-flow-intro{align-items:flex-start}.radar-loop-tag{width:100%;text-align:center}.radar-flow-cta{display:block}.radar-flow-cta .btn{display:inline-block;margin-top:12px}.radar-feedback-line{max-width:28px}}
 @media(prefers-reduced-motion:reduce){.radar-pulse{box-shadow:none}}
 
+
+/* namello-radar-interactive-v1: clickable stages and guided detail panel */
+.radar-node{transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease}
+.radar-node.is-active{border-color:#8be2c3;box-shadow:0 0 0 2px rgba(139,226,195,.16),0 14px 30px #0004;transform:translateY(-2px)}
+.radar-node-action{display:inline-flex;align-items:center;gap:7px;margin-top:13px;padding:7px 11px;border:1px solid #527b78;border-radius:9px;background:#173a3a;color:#c4f4e3;font:inherit;font-size:.76rem;font-weight:800;cursor:pointer}
+.radar-node-action:hover,.radar-node-action:focus-visible{background:#20534a;border-color:#8be2c3;outline:2px solid #8be2c3;outline-offset:2px}
+.radar-detail-panel{display:grid;gap:12px;margin-top:18px;padding:18px;border:1px solid rgba(139,226,195,.42);border-radius:17px;background:linear-gradient(135deg,rgba(24,57,60,.8),rgba(17,37,57,.94));}
+.radar-detail-panel[hidden]{display:none!important}
+.radar-detail-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.radar-detail-kicker{color:#9de2c8;font-size:.76rem;font-weight:850}
+.radar-detail-panel h3{margin:0;color:#f4f7fc;font-size:1.08rem}
+.radar-detail-panel p{margin:0;color:#c4d2df;font-size:.88rem;line-height:1.9}
+.radar-detail-output{padding:10px 12px;border-radius:10px;background:#0b1d2b;color:#aee8d5;font-size:.8rem;line-height:1.8}
+.radar-detail-controls{display:flex;gap:8px;flex-wrap:wrap}
+.radar-detail-controls button{padding:8px 12px;border:1px solid #526b82;border-radius:9px;background:#172a40;color:#edf5ff;font:inherit;font-size:.78rem;font-weight:750;cursor:pointer}
+.radar-detail-controls button:disabled{opacity:.38;cursor:not-allowed}
+.radar-detail-controls button:hover:not(:disabled){border-color:#8be2c3}
+.radar-detail-controls .radar-detail-close{margin-inline-start:auto}
+@media(max-width:560px){.radar-detail-panel{padding:14px}.radar-detail-controls button{flex:1}.radar-detail-controls .radar-detail-close{margin-inline-start:0}}
+
 </style>
 </head>
 <body><a class="skip-link" href="#content-fa">رفتن به محتوای اصلی</a><svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
@@ -788,6 +808,70 @@ setLanguage(saved);
  const endpoint='https://namello-1-0-1.onrender.com/api/market';
  async function update(){try{const r=await fetch(endpoint,{headers:{Accept:'application/json'},cache:'no-store'});if(!r.ok)return;const d=await r.json();render(d)}catch(e){}}
  update();window.setInterval(update,30000);
+})();
+</script>
+
+
+<script id="namello-radar-interactive-v1">
+(function(){
+  document.querySelectorAll('.radar-flow').forEach(function(section){
+    const nodes=Array.from(section.querySelectorAll('.radar-node'));
+    const grid=section.querySelector('.radar-flow-grid');
+    if(!grid||!nodes.length)return;
+    const english=section.id==='radar-process-en';
+    const words=english
+      ? {open:'Explore this stage',step:'Stage',output:'Expected output',prev:'Previous stage',next:'Next stage',close:'Close details',hint:'Select a stage to see its purpose and expected output.'}
+      : {open:'جزئیات این مرحله',step:'مرحله',output:'خروجی مورد انتظار',prev:'مرحله قبل',next:'مرحله بعد',close:'بستن جزئیات',hint:'برای مشاهده هدف و خروجی هر بخش، یکی از مراحل را انتخاب کن.'};
+    const panel=document.createElement('div');
+    panel.className='radar-detail-panel';
+    panel.hidden=true;
+    panel.setAttribute('aria-live','polite');
+    panel.innerHTML='<div class="radar-detail-top"><span class="radar-detail-kicker"></span><h3></h3></div><p></p><div class="radar-detail-output"></div><div class="radar-detail-controls"><button type="button" class="radar-detail-prev"></button><button type="button" class="radar-detail-next"></button><button type="button" class="radar-detail-close"></button></div>';
+    grid.insertAdjacentElement('afterend',panel);
+    const kicker=panel.querySelector('.radar-detail-kicker');
+    const title=panel.querySelector('h3');
+    const description=panel.querySelector('p');
+    const output=panel.querySelector('.radar-detail-output');
+    const prev=panel.querySelector('.radar-detail-prev');
+    const next=panel.querySelector('.radar-detail-next');
+    const close=panel.querySelector('.radar-detail-close');
+    prev.textContent='← '+words.prev; next.textContent=words.next+' →'; close.textContent=words.close;
+    let active=-1;
+    function select(index,focusPanel){
+      active=Math.max(0,Math.min(nodes.length-1,index));
+      const node=nodes[active];
+      nodes.forEach(function(item,i){
+        item.classList.toggle('is-active',i===active);
+        const button=item.querySelector('.radar-node-action');
+        button.setAttribute('aria-expanded',String(i===active));
+      });
+      kicker.textContent=words.step+' '+node.querySelector('.radar-number').textContent+' / '+nodes.length;
+      title.textContent=node.querySelector('h3').textContent;
+      description.textContent=node.querySelector('p').textContent;
+      output.textContent=words.output+': '+node.querySelector('small').textContent;
+      panel.hidden=false;
+      prev.disabled=active===0;
+      next.disabled=active===nodes.length-1;
+      if(focusPanel)panel.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'});
+    }
+    nodes.forEach(function(node,index){
+      const button=document.createElement('button');
+      button.type='button';
+      button.className='radar-node-action';
+      button.textContent=words.open;
+      button.setAttribute('aria-expanded','false');
+      button.addEventListener('click',function(){select(index,true)});
+      node.appendChild(button);
+    });
+    prev.addEventListener('click',function(){if(active>0)select(active-1,false)});
+    next.addEventListener('click',function(){if(active<nodes.length-1)select(active+1,false)});
+    close.addEventListener('click',function(){
+      panel.hidden=true;
+      nodes.forEach(function(node){node.classList.remove('is-active');node.querySelector('.radar-node-action').setAttribute('aria-expanded','false')});
+      active=-1;
+    });
+    panel.insertAdjacentHTML('afterbegin','<p class="radar-detail-hint" style="margin:0;color:#aebfce;font-size:.8rem">'+words.hint+'</p>');
+  });
 })();
 </script>
 
