@@ -210,7 +210,69 @@ nav a.selected,nav a:active{background:#e2e8ef!important;color:#172333!important
 footer .footer-links{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}footer .footer-links a{font-size:.84rem;color:var(--muted)}footer .footer-links a:hover{color:var(--gold)}.support-hub .card a{display:inline-block;margin-top:9px;font-weight:750}
 footer .footer-links{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}footer .footer-links a{font-size:.84rem;color:var(--muted)}footer .footer-links a:hover{color:var(--gold)}.support-hub .card a{display:inline-block;margin-top:9px;font-weight:750}
 html,body{width:100%;max-width:100%;overflow-x:clip}body{position:relative}img,svg,video,iframe{max-width:100%}.wrap,main,section,.section-head,.hero,.hero>*,.grid,.card,.step,.contact,footer{min-width:0}p,h1,h2,h3,summary,figcaption,a{overflow-wrap:anywhere;word-break:normal}nav{min-width:0;max-width:100%}nav a{flex-shrink:0}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:560px){.grid{grid-template-columns:minmax(0,1fr)}.wrap{width:calc(100% - 30px);max-width:100%}}
-\n/* Namello brand mark beside the bilingual name in the sticky header */\n.brand-area{min-width:0}.brand-lockup{display:flex;align-items:center;gap:11px;min-width:0}.brand-mark{display:block;width:46px;height:46px;flex:0 0 46px;object-fit:contain;border-radius:12px;filter:drop-shadow(0 3px 10px #0005)}.brand{line-height:1.35}.tagline{margin-top:2px}\n@media(max-width:560px){.brand-lockup{gap:8px}.brand-mark{width:38px;height:38px;flex-basis:38px}.brand{font-size:1.25rem}}\n.brand .brand-fa{color:#a7caff!important}\n</style>
+\n/* Namello brand mark beside the bilingual name in the sticky header */\n.brand-area{min-width:0}.brand-lockup{display:flex;align-items:center;gap:11px;min-width:0}.brand-mark{display:block;width:46px;height:46px;flex:0 0 46px;object-fit:contain;border-radius:12px;filter:drop-shadow(0 3px 10px #0005)}.brand{line-height:1.35}.tagline{margin-top:2px}\n@media(max-width:560px){.brand-lockup{gap:8px}.brand-mark{width:38px;height:38px;flex-basis:38px}.brand{font-size:1.25rem}}\n.brand .brand-fa{color:#a7caff!important}\n
+/* Forex trader focused visual system */
+:root{--terminal:#071321;--electric:#79baff;--ice:#e1edfa;--lime:#8be2c3}
+body{background:radial-gradient(ellipse at 50% -15%,#23466a55,transparent 48%),radial-gradient(ellipse at 92% 40%,#1b66501b,transparent 32%),var(--bg)}
+header{background:rgba(5,14,25,.95);border-bottom:1px solid #405873;box-shadow:0 8px 28px #0003}
+.market-strip{position:relative;margin:18px auto 0;padding:14px 16px 15px;border:1px solid #304b68;border-radius:17px;background:linear-gradient(105deg,#0c1d30,#10263a 55%,#0b1a2a);box-shadow:0 14px 38px #0003;overflow:hidden}
+.market-strip:before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:linear-gradient(var(--mint),var(--electric),var(--gold))}
+.market-strip-head{display:flex;align-items:center;gap:9px;margin-bottom:11px;color:#e8f2ff;font-size:.83rem}
+.live-mark,.eyebrow-dot{display:inline-block;width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:#8be2c3;box-shadow:0 0 0 4px #8be2c31b,0 0 12px #8be2c3}
+.sample-label{margin-inline-start:auto;color:#9fb2c8;font-size:.72rem;font-weight:500}
+.market-pairs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.pair-tile{min-width:0;padding:10px 12px;border:1px solid #2c435d;border-radius:11px;background:linear-gradient(145deg,#142940,#0d1c2d)}
+.pair-tile span{display:block;color:#f3f7fc;font-size:.93rem;font-weight:850;direction:ltr;text-align:start;letter-spacing:.045em}
+.pair-tile b{display:block;color:#b8c9db;font-size:.74rem;font-weight:600;margin-top:2px}
+.pair-tile small{display:block;color:#7f9ab6;font-size:.61rem;letter-spacing:.11em;margin-top:4px}
+.hero{padding-top:54px;padding-bottom:62px;gap:clamp(28px,5vw,60px)}
+.hero .eyebrow{display:flex;align-items:center;gap:10px;color:#a9cfff;letter-spacing:.015em;font-size:.88rem}
+.hero .eyebrow-dot{background:var(--gold);box-shadow:0 0 0 4px #f2c8791b,0 0 12px #f2c879}
+.hero h1{font-size:clamp(2.6rem,5vw,4.25rem);line-height:1.36;font-weight:950;letter-spacing:-.045em;margin:19px 0 17px}
+.hero-gradient{background:linear-gradient(95deg,#f5d18d 5%,#a9d2ff 52%,#8be2c3 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:1.08rem;max-width:620px;color:#c4d2e2;line-height:2.05}
+.hero .actions{margin-top:24px;gap:10px}.hero .primary{box-shadow:0 8px 24px #f0c4772b}
+.hero .btn:not(.primary){background:#14283e;border-color:#47627f}
+.hero-highlights{gap:9px;margin-top:25px}
+.hero-highlight{position:relative;background:linear-gradient(145deg,#142b42,#0c1b2c);border-color:#35516d;padding:13px 12px;min-height:91px}
+.hero-highlight:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,var(--mint),transparent)}
+.hero-highlight b{font-size:.83rem;color:#f4d394}.hero-highlight span{font-size:.75rem;color:#c0cede}
+.hero-product-shot,.dashboard-art{border-color:#496887;background:linear-gradient(145deg,#1b3551,#091727);box-shadow:0 28px 80px #0008}
+.hero-product-shot{padding:11px;border-radius:24px}
+.product-shot-top{font-size:.7rem;letter-spacing:.07em;color:#bcd1e7}
+.hero-product-shot a{border-color:#39536f;box-shadow:0 8px 25px #0005}
+.hero-product-shot img{height:clamp(310px,40vw,490px)}
+.hero-product-shot p{font-size:.72rem;color:#9db2c9}
+.dashboard-art{border-radius:24px}
+.art-title{color:#eaf3ff}.art-value{background:linear-gradient(90deg,#8be2c3,#9cc5f4);-webkit-background-clip:text;background-clip:text;color:transparent}
+#preview,#preview-en{padding-top:55px}
+#preview .section-head,#preview-en .section-head{max-width:100%;display:flex;align-items:end;justify-content:space-between;gap:22px}
+#preview .section-head .lead,#preview-en .section-head .lead{max-width:460px}
+.preview-grid{gap:15px}
+.preview-card{background:linear-gradient(150deg,#142940,#0a1727);border-color:#344e69;padding:10px;box-shadow:0 12px 30px #0003}
+.preview-card a{border:1px solid #2a415b;background:#071321}
+.preview-card img{height:290px}
+.preview-card figcaption{font-size:.88rem;color:#e5effb;padding-top:12px}
+.step,.card{background:linear-gradient(145deg,#152b42ed,#0c1929f5);border-color:#344d68;box-shadow:0 13px 35px #0002}
+.step:hover,.card:hover{border-color:#7091b3;box-shadow:0 19px 42px #0004}
+.card h3{color:#f2d294}
+.pro{background:radial-gradient(ellipse at 88% 0%,#e6b65b20,transparent 48%),linear-gradient(120deg,#1b3550,#0c1a2b);border-color:#806b48}
+.contact{background:linear-gradient(120deg,#142c44,#0e1d30);border-color:#405a76}
+@media(max-width:850px){.market-pairs{grid-template-columns:repeat(3,minmax(0,1fr))}.market-pairs .pair-tile:nth-child(n+4){display:none}.hero{padding-top:36px}.hero h1{font-size:clamp(2.35rem,7vw,3.6rem)}#preview .section-head,#preview-en .section-head{display:block}}
+@media(max-width:560px){
+ .market-strip{margin-top:12px;padding:12px 11px}.market-strip-head{font-size:.73rem;gap:7px}.sample-label{font-size:.63rem}
+ .market-pairs{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.market-pairs .pair-tile:nth-child(3){display:block}.market-pairs .pair-tile:nth-child(n+4){display:none}
+ .pair-tile{padding:8px 9px}.pair-tile span{font-size:.84rem}.pair-tile b{font-size:.69rem}
+ .hero{padding:30px 0 35px;gap:22px}.hero h1{font-size:clamp(2.15rem,9vw,2.85rem);line-height:1.42}
+ .hero p{font-size:.96rem;line-height:1.95}.hero-highlights{grid-template-columns:1fr;gap:7px;margin-top:19px}
+ .hero-highlight{min-height:0;display:flex;align-items:center;gap:10px;padding:10px 12px}
+ .hero-highlight b{min-width:112px;margin:0;font-size:.78rem}.hero-highlight span{font-size:.73rem}
+ .hero-product-shot img{height:340px}#preview,#preview-en{padding-top:35px}
+ .preview-grid{gap:9px}.preview-card img{height:225px}.preview-card figcaption{font-size:.79rem}
+}
+html[dir="ltr"] .market-strip-head{letter-spacing:.06em}html[dir="ltr"] .pair-tile b{font-size:.72rem}html[dir="ltr"] .hero h1{letter-spacing:-.045em}
+
+</style>
 </head>
 <body><a class="skip-link" href="#content-fa">رفتن به محتوای اصلی</a><svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
 <symbol id="nm-edit" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/></symbol>
@@ -238,8 +300,8 @@ html,body{width:100%;max-width:100%;overflow-x:clip}body{position:relative}img,s
 <nav id="nav-en" aria-label="Main navigation" hidden><a href="#preview-en">Product</a><a href="#journey-en">How it works</a><a href="#distinctive-en">Features</a><a href="#dashboard-en">Dashboard</a><a href="#sessions-en">Sessions</a><a href="#news-en">News</a><a href="#settings-en">Settings</a><a href="#pro-en">Namello Pro</a><a href="#support-en">Support</a><a href="#faq-en">FAQ</a><a href="#contact-en">Contact</a></nav>
 </header>
 
-<main id="content-fa">
-<section class="hero"><div><div class="eyebrow">ژورنال معاملاتی برای بازارهای مالی</div><h1>هر معامله یک تجربه است؛<br>هر تجربه فرصتی برای رشد</h1><p>Namello فضایی منظم برای ثبت معاملات، مرور تصمیم‌ها و شناخت بهتر عملکرد معاملاتی شماست. سوابق خود را از حافظه بیرون بیاورید، آن‌ها را ثبت کنید و با نگاهی روشن‌تر مسیر معامله‌گری‌تان را بررسی کنید.</p><div class="actions"><a class="btn primary" href="#preview">مشاهده محیط واقعی برنامه</a><a class="btn" href="#journey">آشنایی با روش کار</a></div><div class="hero-highlights" aria-label="مزیت‌های اصلی نملو"><div class="hero-highlight"><b>⚡ ثبت سریع و کامل</b><span>جزئیات بیشتر، در زمان کمتر</span></div><div class="hero-highlight"><b>🖼️ استخراج از تصویر</b><span>کمک به ورود پارامترهای معامله</span></div><div class="hero-highlight"><b>🎯 تحلیل احتمال موفقیت</b><span>برآورد آماری بر پایه سوابق</span></div></div></div>
+<main id="content-fa"><div class="wrap"><div class="market-strip" aria-label="نمادهای منتخب بازار"><div class="market-strip-head"><span class="live-mark"></span><strong>میز معامله‌گر فارکس</strong><span class="sample-label">چیدمان نمایشی · بدون قیمت زنده</span></div><div class="market-pairs"><div class="pair-tile"><span>EUR / USD</span><b>یورو · دلار</b><small>MAJOR PAIR</small></div><div class="pair-tile"><span>GBP / USD</span><b>پوند · دلار</b><small>MAJOR PAIR</small></div><div class="pair-tile"><span>USD / JPY</span><b>دلار · ین</b><small>MAJOR PAIR</small></div><div class="pair-tile"><span>XAU / USD</span><b>طلا · دلار</b><small>METALS</small></div><div class="pair-tile"><span>EUR / GBP</span><b>یورو · پوند</b><small>CROSS PAIR</small></div></div></div></div>
+<section class="hero"><div><div class="eyebrow"><span class="eyebrow-dot"></span> ژورنال و میز تحلیل معامله‌گر فارکس</div><h1>فقط معامله نکن؛<br><span class="hero-gradient">عملکردت را بشناس.</span></h1><p>از ثبت دقیق هر پوزیشن تا بررسی ریسک، رفتار و کیفیت استراتژی؛ Namello تجربه‌های پراکنده معاملاتی را به سابقه‌ای منظم و قابل تحلیل تبدیل می‌کند.</p><div class="actions"><a class="btn primary" href="#preview">مشاهده محیط واقعی برنامه</a><a class="btn" href="#distinctive">کشف ابزارهای تحلیلی</a></div><div class="hero-highlights" aria-label="مزیت‌های اصلی نملو"><div class="hero-highlight"><b>⚡ ثبت سریع و کامل</b><span>جزئیات بیشتر، در زمان کمتر</span></div><div class="hero-highlight"><b>🖼️ استخراج از تصویر</b><span>کمک به ورود پارامترهای معامله</span></div><div class="hero-highlight"><b>🎯 تحلیل احتمال موفقیت</b><span>برآورد آماری بر پایه سوابق</span></div></div></div>
 <div class="hero-product-shot"><div class="product-shot-top"><span>نمای واقعی از Namello</span><span>داشبورد</span></div><a href="assets/screenshots/dashboard.jpg" target="_blank" rel="noopener" aria-label="مشاهده تصویر کامل داشبورد Namello"><img src="assets/screenshots/dashboard.jpg" alt="نمای واقعی داشبورد اپلیکیشن Namello" fetchpriority="high"></a><p>برای مشاهده جزئیات، تصویر را باز کنید.</p></div></section>
 <section class="section" id="preview"><div class="section-head"><div class="kicker">پیش‌نمایش برنامه</div><h2>نمایی از محیط واقعی نملو</h2><p class="lead">با صفحات اصلی برنامه آشنا شوید. برای مشاهده هر تصویر در اندازه بزرگ‌تر، روی آن بزنید.</p></div><div class="preview-grid">
 <figure class="preview-card"><a href="assets/screenshots/welcome.jpg" target="_blank" rel="noopener"><img src="assets/screenshots/welcome.jpg" alt="صفحه خوشامدگویی Namello" loading="lazy"></a><figcaption>خوشامدگویی</figcaption></figure>
@@ -286,8 +348,8 @@ html,body{width:100%;max-width:100%;overflow-x:clip}body{position:relative}img,s
 <section class="section" id="contact"><div class="contact"><div class="kicker">ارتباط با ما</div><h2>با نملو در ارتباط باشید</h2><p class="lead">پرسش، پیشنهاد یا بازخورد شما به بهتر شدن تجربه Namello کمک می‌کند.</p><p><a href="mailto:namellotradingjournal@gmail.com">namellotradingjournal@gmail.com</a></p></div><p class="disclaimer">نملو ابزار ثبت و مرور عملکرد معاملاتی است؛ محتوای آن توصیه مالی، پیشنهاد خریدوفروش یا تضمین سود محسوب نمی‌شود. تصمیم‌های معاملاتی و مدیریت ریسک بر عهده کاربر است.</p></section>
 </main>
 
-<main id="content-en" hidden>
-<section class="hero"><div><div class="eyebrow">A TRADING JOURNAL FOR FINANCIAL MARKETS</div><h1>Every trade is an experience.<br>Every experience is a chance to grow.</h1><p>Namello gives you an organized space to record trades, revisit decisions, and better understand your trading performance. Move beyond memory and momentary impressions: keep a clear record and review your trading journey with greater perspective.</p><div class="actions"><a class="btn primary" href="#distinctive-en">Explore key capabilities</a><a class="btn" href="mailto:namellotradingjournal@gmail.com">Contact our team</a></div><div class="hero-highlights" aria-label="Namello key advantages"><div class="hero-highlight"><b>⚡ Fast, detailed entry</b><span>Capture more in less time</span></div><div class="hero-highlight"><b>🖼️ Image extraction</b><span>Assist with trade parameter entry</span></div><div class="hero-highlight"><b>🎯 Success probability analysis</b><span>Statistical estimates from history</span></div></div></div>
+<main id="content-en" hidden><div class="wrap"><div class="market-strip" aria-label="Selected market instruments"><div class="market-strip-head"><span class="live-mark"></span><strong>FOREX TRADER DESK</strong><span class="sample-label">Illustrative layout · no live prices</span></div><div class="market-pairs"><div class="pair-tile"><span>EUR / USD</span><b>Euro · US Dollar</b><small>MAJOR PAIR</small></div><div class="pair-tile"><span>GBP / USD</span><b>Pound · US Dollar</b><small>MAJOR PAIR</small></div><div class="pair-tile"><span>USD / JPY</span><b>US Dollar · Yen</b><small>MAJOR PAIR</small></div><div class="pair-tile"><span>XAU / USD</span><b>Gold · US Dollar</b><small>METALS</small></div><div class="pair-tile"><span>EUR / GBP</span><b>Euro · Pound</b><small>CROSS PAIR</small></div></div></div></div>
+<section class="hero"><div><div class="eyebrow"><span class="eyebrow-dot"></span> JOURNAL & ANALYSIS DESK FOR FOREX TRADERS</div><h1>Don’t just trade.<br><span class="hero-gradient">Understand your edge.</span></h1><p>From recording every position to reviewing risk, behavior, and strategy quality, Namello turns scattered trading experiences into an organized record you can learn from.</p><div class="actions"><a class="btn primary" href="#distinctive-en">Explore key capabilities</a><a class="btn" href="mailto:namellotradingjournal@gmail.com">Contact our team</a></div><div class="hero-highlights" aria-label="Namello key advantages"><div class="hero-highlight"><b>⚡ Fast, detailed entry</b><span>Capture more in less time</span></div><div class="hero-highlight"><b>🖼️ Image extraction</b><span>Assist with trade parameter entry</span></div><div class="hero-highlight"><b>🎯 Success probability analysis</b><span>Statistical estimates from history</span></div></div></div>
 <div class="dashboard-art"><div class="art-head"><span>NAMELLO / TRADING JOURNAL</span><span>01 — OVERVIEW</span></div><div class="art-title">From recording to review</div><div class="art-value">Trade with clarity.</div><div class="chart"><i style="height:35%"></i><i style="height:52%"></i><i style="height:43%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:91%"></i><i style="height:77%"></i></div><div class="art-foot"><div class="mini"><b>Journal</b>Capture experiences</div><div class="mini"><b>Insights</b>Understand performance</div><div class="mini"><b>Sessions</b>Market timing</div></div><p class="disclaimer">Conceptual graphic, not an actual screenshot of the app.</p></div></section>
 <section class="section" id="preview-en"><div class="section-head"><div class="kicker">APP PREVIEW</div><h2>Explore the Namello interface</h2><p class="lead">Take a look at the app's main screens. Select any image to open it at full size.</p></div><div class="preview-grid">
 <figure class="preview-card"><a href="assets/screenshots/welcome.jpg" target="_blank" rel="noopener"><img src="assets/screenshots/welcome.jpg" alt="Namello welcome screen" loading="lazy"></a><figcaption>Welcome</figcaption></figure>
