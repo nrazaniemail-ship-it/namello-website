@@ -11,10 +11,33 @@
 [hidden]{display:none!important}@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.session-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.grid{grid-template-columns:1fr}.fields{grid-template-columns:1fr 1fr}.hero{padding-top:40px}.session-grid{grid-template-columns:1fr 1fr}}
 
 .glossary-tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:14px 0 18px}.glossary-tools input{flex:1;min-width:220px;background:#091525;color:var(--text);border:1px solid #344a65;border-radius:10px;padding:12px;font:inherit}.term{border-top:3px solid #49617e}.term h3{color:var(--gold)}.review-field{margin-top:12px}.review-field label{display:block;color:var(--muted);font-size:.88rem;margin-bottom:5px}.review-field textarea{width:100%;min-height:82px;resize:vertical;background:#091525;color:var(--text);border:1px solid #344a65;border-radius:10px;padding:10px;font:inherit}.review-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.review-actions button{border:1px solid var(--line);background:var(--surface2);color:var(--text);padding:9px 14px;border-radius:9px;font:inherit;cursor:pointer}.review-actions button:hover{border-color:var(--gold)}
+
+/* Light theme */
+:root[data-theme="light"]{--bg:#f3f6fa;--surface:#ffffff;--surface2:#e8eef5;--line:#d5dee9;--text:#172536;--muted:#5e6d7e;--gold:#a66a12;--mint:#087f70;--blue:#2868a8}
+:root[data-theme="light"] body{background:radial-gradient(ellipse at 80% -10%,#dce9f5 0,transparent 40%),var(--bg);color:var(--text)}
+:root[data-theme="light"] header{background:#f7f9fcf2;border-bottom-color:var(--line)}
+:root[data-theme="light"] .brand{color:var(--text)}
+:root[data-theme="light"] nav a:hover,:root[data-theme="light"] .lang button.active{background:#e5edf6;color:#174d78}
+:root[data-theme="light"] .lang button{border-color:var(--line);color:var(--muted)}
+:root[data-theme="light"] .card{background:linear-gradient(145deg,#fff,#f4f7fb);border-color:var(--line);box-shadow:0 12px 32px #24364a12}
+:root[data-theme="light"] .field input,:root[data-theme="light"] .field select,:root[data-theme="light"] .glossary-tools input,:root[data-theme="light"] .review-field textarea{background:#fff;color:var(--text);border-color:#c5d1df}
+:root[data-theme="light"] .result{background:#e6f2f1;color:#087568;border:1px solid #c5e1dc}
+:root[data-theme="light"] .session{background:#fff;border-color:var(--line)}
+:root[data-theme="light"] .callout{background:linear-gradient(135deg,#fff7e9,#fdf0dc);border-color:#e8c98e}
+:root[data-theme="light"] .callout p{color:#634a27}
+:root[data-theme="light"] .term{border-top-color:#8ba9c8}
+:root[data-theme="light"] .term h3{color:#8b5a10}
+:root[data-theme="light"] .review-actions button{background:#edf2f7;color:var(--text);border-color:var(--line)}
+:root[data-theme="light"] .btn{border-color:#c7d3e0;color:#29445f}
+:root[data-theme="light"] .btn.primary{background:#e7b85e;color:#172536;border-color:#d9a746}
+:root[data-theme="light"] footer{border-top-color:var(--line)}
+.theme-toggle{padding:7px 11px;border-radius:9px;border:1px solid var(--line);background:transparent;color:var(--muted);font:inherit;font-size:.88rem;cursor:pointer}
+.theme-toggle:hover{background:var(--surface2);color:var(--text)}
+
 </style>
 </head>
 <body>
-<header><div class="wrap top"><a class="brand" href="index.html">Nam<span>ello</span></a><nav id="fa-nav"><a href="index.html">صفحه اصلی</a><a href="#calculators">ماشین‌حساب‌ها</a><a href="#sessions">ساعت بازارها</a><a href="#learn">یادگیری</a><a href="#glossary">واژه‌نامه</a></nav><nav id="en-nav" hidden><a href="index.html">Home</a><a href="#calculators">Calculators</a><a href="#sessions">Market hours</a><a href="#learn">Learn</a><a href="#glossary">Glossary</a></nav><div class="lang"><button id="fa-btn" class="active" type="button">فارسی</button><button id="en-btn" type="button">EN</button></div></div></header>
+<header><div class="wrap top"><a class="brand" href="index.html">Nam<span>ello</span></a><nav id="fa-nav"><a href="index.html">صفحه اصلی</a><a href="#calculators">ماشین‌حساب‌ها</a><a href="#sessions">ساعت بازارها</a><a href="#learn">یادگیری</a><a href="#glossary">واژه‌نامه</a></nav><nav id="en-nav" hidden><a href="index.html">Home</a><a href="#calculators">Calculators</a><a href="#sessions">Market hours</a><a href="#learn">Learn</a><a href="#glossary">Glossary</a></nav><div class="lang"><button id="theme-toggle" class="theme-toggle" type="button" aria-label="تغییر پوسته">☀ روشن</button><button id="fa-btn" class="active" type="button">فارسی</button><button id="en-btn" type="button">EN</button></div></div></header>
 <main class="wrap">
 <section class="hero" id="top"><div class="eyebrow" data-fa="ابزارهای کاربردی برای تصمیم‌گیری آگاهانه" data-en="Practical tools for more informed decisions">ابزارهای کاربردی برای تصمیم‌گیری آگاهانه</div><h1 data-fa="کتابخانه معامله‌گری نملو" data-en="Namello Trading Library">کتابخانه معامله‌گری نملو</h1><p data-fa="ماشین‌حساب‌های رایگان، ابزارهای مدیریت ریسک و اطلاعات بازار را یک‌جا در اختیار داشته باشید. این ابزارها برای آموزش و برآورد هستند و جایگزین بررسی مشخصات نماد و تصمیم‌گیری مستقل شما نیستند." data-en="Explore free calculators, risk-management tools and market information in one place. These tools are educational estimates, not a substitute for checking instrument specifications or making your own decisions.">ماشین‌حساب‌های رایگان، ابزارهای مدیریت ریسک و اطلاعات بازار را یک‌جا در اختیار داشته باشید. این ابزارها برای آموزش و برآورد هستند و جایگزین بررسی مشخصات نماد و تصمیم‌گیری مستقل شما نیستند.</p><div class="hero-actions"><a class="btn primary" href="#calculators" data-fa="شروع محاسبه" data-en="Start calculating">شروع محاسبه</a><a class="btn" href="index.html#preview" data-fa="آشنایی با ژورنال نملو" data-en="Explore Namello journal">آشنایی با ژورنال نملو</a></div></section>
 <section class="section" id="calculators"><div class="section-head"><div><div class="eyebrow" data-fa="محاسبه‌گرهای رایگان" data-en="FREE CALCULATORS">محاسبه‌گرهای رایگان</div><h2 data-fa="پیش از ورود به معامله، اعداد را بررسی کنید" data-en="Check the numbers before you trade">پیش از ورود به معامله، اعداد را بررسی کنید</h2></div><span class="muted" data-fa="محاسبات در همین دستگاه انجام می‌شوند." data-en="Calculations run locally in your browser.">محاسبات در همین دستگاه انجام می‌شوند.</span></div>
@@ -63,6 +86,13 @@
 </main><footer><div class="wrap"><span data-fa="کتابخانه نملو — ابزارهای آموزشی و کمکی معامله‌گری" data-en="Namello Library — educational trading tools">کتابخانه نملو — ابزارهای آموزشی و کمکی معامله‌گری</span> · <a href="index.html">Namello</a></div></footer>
 <script>
 const $=id=>document.getElementById(id),num=id=>Number($(id).value),fmt=n=>Number.isFinite(n)?n.toLocaleString(document.documentElement.lang==='fa'?'fa-IR':'en-US',{maximumFractionDigits:4}):'—';
+
+const themeToggle=$('theme-toggle');
+function applyTheme(theme){document.documentElement.dataset.theme=theme;const light=theme==='light';themeToggle.textContent=light?'☾ تیره':'☀ روشن';themeToggle.setAttribute('aria-label',light?'فعال‌سازی پوسته تیره':'فعال‌سازی پوسته روشن');themeToggle.setAttribute('aria-pressed',String(light));}
+let savedTheme='dark';try{savedTheme=localStorage.getItem('namello-theme-library')||'dark';}catch(e){}
+applyTheme(savedTheme==='light'?'light':'dark');
+themeToggle.addEventListener('click',()=>{const next=document.documentElement.dataset.theme==='light'?'dark':'light';applyTheme(next);try{localStorage.setItem('namello-theme-library',next);}catch(e){}});
+
 function calcSize(){const riskAmt=num('balance')*num('risk')/100,den=num('stop')*num('pipvalue'),v=den>0?riskAmt/den:NaN;$('size-result').textContent=(document.documentElement.lang==='fa'?'حجم تقریبی: ':'Estimated size: ')+(Number.isFinite(v)?fmt(v)+' lots':'ورودی نامعتبر');}
 function calcRR(){const e=num('entry'),s=num('sl'),t=num('tp'),d=$('direction').value,loss=d==='long'?e-s:s-e,gain=d==='long'?t-e:e-t;$('rr-result').textContent=loss>0&&gain>0?(document.documentElement.lang==='fa'?'نسبت ریسک به بازده: 1 : ':'Risk/reward: 1 : ')+fmt(gain/loss):(document.documentElement.lang==='fa'?'قیمت‌ها با جهت معامله سازگار نیستند':'Prices do not match trade direction');}
 function calcPL(){const delta=($('pl-direction').value==='long'?1:-1)*(num('pl-exit')-num('pl-entry'))*num('quantity')*num('multiplier');$('pl-result').textContent=(document.documentElement.lang==='fa'?'سود/زیان برآوردی: ':'Estimated P/L: ')+(delta>0?'+':'')+fmt(delta);}
