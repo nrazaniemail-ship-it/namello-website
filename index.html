@@ -403,7 +403,7 @@ html[dir="ltr"] .market-strip-head{letter-spacing:.06em}html[dir="ltr"] .pair-ti
 <section class="section" id="contact"><div class="contact"><div class="kicker">ارتباط با ما</div><h2>با نملو در ارتباط باشید</h2><p class="lead">پرسش، پیشنهاد یا بازخورد شما به بهتر شدن تجربه Namello کمک می‌کند.</p><p><a href="mailto:namellotradingjournal@gmail.com">namellotradingjournal@gmail.com</a></p></div><p class="disclaimer">نملو ابزار ثبت و مرور عملکرد معاملاتی است؛ محتوای آن توصیه مالی، پیشنهاد خریدوفروش یا تضمین سود محسوب نمی‌شود. تصمیم‌های معاملاتی و مدیریت ریسک بر عهده کاربر است.</p></section>
 </main>
 
-<main id="content-en" hidden><div class="wrap"><div class="market-strip" aria-label="Selected market instruments"><div class="market-strip-head"><span class="live-mark"></span><strong>FOREX TRADER DESK</strong><span class="sample-label">Illustrative layout · no live prices</span></div><div class="market-pairs"><div class="pair-tile"><span>EUR / USD</span><b>Euro · US Dollar</b><small>MAJOR PAIR</small></div><div class="pair-tile"><span>GBP / USD</span><b>Pound · US Dollar</b><small>MAJOR PAIR</small></div><div class="pair-tile"><span>USD / JPY</span><b>US Dollar · Yen</b><small>MAJOR PAIR</small></div><div class="pair-tile"><span>XAU / USD</span><b>Gold · US Dollar</b><small>METALS</small></div><div class="pair-tile"><span>EUR / GBP</span><b>Euro · Pound</b><small>CROSS PAIR</small></div></div></div></div>
+<main id="content-en" hidden><div class="wrap"><div class="market-strip" id="namello-market-strip-en" aria-label="Live selected market instruments"><div class="market-strip-head"><span class="live-mark"></span><strong>FOREX TRADER DESK</strong><span class="sample-label" id="market-status-en" role="status" aria-live="polite">Loading market data…</span></div><div class="market-pairs"><div class="pair-tile" data-symbol="EUR/USD"><span>EUR / USD</span><b>Euro · US Dollar</b><strong class="pair-price" data-price>—</strong><small class="pair-change" data-change>Waiting for valid data</small></div><div class="pair-tile" data-symbol="GBP/USD"><span>GBP / USD</span><b>Pound · US Dollar</b><strong class="pair-price" data-price>—</strong><small class="pair-change" data-change>Waiting for valid data</small></div><div class="pair-tile" data-symbol="USD/JPY"><span>USD / JPY</span><b>US Dollar · Yen</b><strong class="pair-price" data-price>—</strong><small class="pair-change" data-change>Waiting for valid data</small></div><div class="pair-tile" data-symbol="XAU/USD"><span>XAU / USD</span><b>Gold · US Dollar</b><strong class="pair-price" data-price>—</strong><small class="pair-change" data-change>Waiting for valid data</small></div><div class="pair-tile" data-symbol="EUR/GBP"><span>EUR / GBP</span><b>Euro · Pound</b><strong class="pair-price" data-price>—</strong><small class="pair-change" data-change>Waiting for valid data</small></div></div><div class="market-strip-foot"><span id="market-updated-en">Prices appear after a valid response.</span><span>Data provider: Twelve Data</span></div></div></div>
 <section class="hero"><div><div class="eyebrow"><span class="eyebrow-dot"></span> JOURNAL & ANALYSIS DESK FOR FOREX TRADERS</div><h1>Don’t just trade.<br><span class="hero-gradient">Understand your edge.</span></h1><p>From recording every position to reviewing risk, behavior, and strategy quality, Namello turns scattered trading experiences into an organized record you can learn from.</p><div class="actions"><a class="btn primary" href="#distinctive-en">Explore key capabilities</a><a class="btn" href="mailto:namellotradingjournal@gmail.com">Contact our team</a></div><div class="hero-highlights" aria-label="Namello key advantages"><div class="hero-highlight"><b>⚡ Fast, detailed entry</b><span>Capture more in less time</span></div><div class="hero-highlight"><b>🖼️ Image extraction</b><span>Assist with trade parameter entry</span></div><div class="hero-highlight"><b>🎯 Success probability analysis</b><span>Statistical estimates from history</span></div></div></div>
 <div class="dashboard-art"><div class="art-head"><span>NAMELLO / TRADING JOURNAL</span><span>01 — OVERVIEW</span></div><div class="art-title">From recording to review</div><div class="art-value">Trade with clarity.</div><div class="chart"><i style="height:35%"></i><i style="height:52%"></i><i style="height:43%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:91%"></i><i style="height:77%"></i></div><div class="art-foot"><div class="mini"><b>Journal</b>Capture experiences</div><div class="mini"><b>Insights</b>Understand performance</div><div class="mini"><b>Sessions</b>Market timing</div></div><p class="disclaimer">Conceptual graphic, not an actual screenshot of the app.</p></div></section>
 <section class="section" id="preview-en"><div class="section-head"><div class="kicker">APP PREVIEW</div><h2>Explore the Namello interface</h2><p class="lead">Take a look at the app's main screens. Select any image to open it at full size.</p></div><div class="preview-grid">
@@ -535,86 +535,49 @@ setLanguage(saved);
 
 <script>
 (function(){
-  const strip=document.getElementById('namello-market-strip');
-  if(!strip)return;
-  const endpoint='https://namello-1-0-1.onrender.com/api/market';
-  const statusEl=document.getElementById('market-status');
-  const updatedEl=document.getElementById('market-updated');
-  const tiles=[...strip.querySelectorAll('.pair-tile[data-symbol]')];
-  const labels={
-    fa:{loading:'در حال دریافت داده‌های بازار…',ok:'داده‌های بازار دریافت شد',partial:'داده‌های بعضی نمادها در دسترس نیست',error:'دریافت داده بازار ناموفق بود',unconfigured:'سرویس داده بازار هنوز پیکربندی نشده است',stale:'داده دریافتی قدیمی است',updated:'آخرین دریافت: ',waiting:'در انتظار داده معتبر',change:'تغییر: '},
-    en:{loading:'Loading market data…',ok:'Market data received',partial:'Some symbols are unavailable',error:'Market data request failed',unconfigured:'Market data service is not configured',stale:'Received data is stale',updated:'Last received: ',waiting:'Waiting for valid data',change:'Change: '}
-  };
-  const language=()=>document.documentElement.lang==='en'?'en':'fa';
-  const numberFormat=(symbol,value)=>{
-    const digits=symbol==='USD/JPY'?3:(symbol==='XAU/USD'?2:5);
-    return new Intl.NumberFormat(language()==='fa'?'fa-IR':'en-US',{minimumFractionDigits:digits,maximumFractionDigits:digits}).format(value);
-  };
-  const setStatus=(kind,message)=>{
-    strip.classList.remove('market-ok','market-error');
-    if(kind==='ok')strip.classList.add('market-ok');
-    if(kind==='error')strip.classList.add('market-error');
-    statusEl.textContent=message;
-  };
-  const clearQuotes=()=>{
-    tiles.forEach(tile=>{
-      tile.querySelector('[data-price]').textContent='—';
-      tile.querySelector('[data-change]').textContent=labels[language()].waiting;
-      tile.querySelector('[data-change]').className='pair-change';
+ const strips=[
+  {root:document.getElementById('namello-market-strip'),status:document.getElementById('market-status'),updated:document.getElementById('market-updated')},
+  {root:document.getElementById('namello-market-strip-en'),status:document.getElementById('market-status-en'),updated:document.getElementById('market-updated-en')}
+ ].filter(x=>x.root&&x.status&&x.updated).map(x=>({...x,tiles:[...x.root.querySelectorAll('.pair-tile[data-symbol]')]}));
+ if(!strips.length)return;
+ const endpoint='https://namello-1-0-1.onrender.com/api/market';
+ const labels={
+  fa:{loading:'در حال دریافت داده‌های بازار…',ok:'داده‌های بازار دریافت شد',partial:'داده‌های بعضی نمادها در دسترس نیست',error:'دریافت داده بازار ناموفق بود',unconfigured:'سرویس داده بازار هنوز پیکربندی نشده است',stale:'داده دریافتی قدیمی است',updated:'آخرین دریافت: ',waiting:'در انتظار داده معتبر'},
+  en:{loading:'Loading market data…',ok:'Market data received',partial:'Some symbols are unavailable',error:'Market data request failed',unconfigured:'Market data service is not configured',stale:'Received data is stale',updated:'Last received: ',waiting:'Waiting for valid data'}
+ };
+ const language=()=>document.documentElement.lang==='en'?'en':'fa';
+ const fmt=(symbol,value)=>{const digits=symbol==='USD/JPY'?3:(symbol==='XAU/USD'?2:5);return new Intl.NumberFormat(language()==='fa'?'fa-IR':'en-US',{minimumFractionDigits:digits,maximumFractionDigits:digits}).format(value)};
+ const status=(item,kind,msg)=>{item.root.classList.remove('market-ok','market-error');if(kind==='ok')item.root.classList.add('market-ok');if(kind==='error')item.root.classList.add('market-error');item.status.textContent=msg};
+ const clear=item=>item.tiles.forEach(tile=>{tile.querySelector('[data-price]').textContent='—';const el=tile.querySelector('[data-change]');el.textContent=labels[language()].waiting;el.className='pair-change'});
+ async function refresh(){
+  strips.forEach(item=>status(item,'loading',labels[language()].loading));
+  try{
+   const response=await fetch(endpoint,{method:'GET',headers:{Accept:'application/json'},cache:'no-store',signal:AbortSignal.timeout(15000)});
+   const data=await response.json();
+   if(!response.ok)throw new Error(data.status==='unconfigured'?'unconfigured':'error');
+   if(!Array.isArray(data.quotes))throw new Error('error');
+   const receivedAt=Date.parse(data.fetchedAt||''),stale=!Number.isFinite(receivedAt)||(Date.now()-receivedAt)>180000;
+   const quotes=new Map(data.quotes.map(q=>[q.symbol,q]));
+   strips.forEach(item=>{
+    let count=0;
+    item.tiles.forEach(tile=>{
+     const symbol=tile.dataset.symbol,q=quotes.get(symbol),price=tile.querySelector('[data-price]'),changeEl=tile.querySelector('[data-change]');
+     if(!q||q.price===null||q.price===undefined||q.price===''||!Number.isFinite(Number(q.price))){price.textContent='—';changeEl.textContent=labels[language()].waiting;changeEl.className='pair-change';return}
+     count++;price.textContent=fmt(symbol,Number(q.price));
+     const pct=q.percentChange==null?NaN:Number(q.percentChange),abs=q.change==null?NaN:Number(q.change);
+     if(Number.isFinite(pct)){const sign=pct>0?'+':'';changeEl.textContent=(Number.isFinite(abs)?(abs>0?'+':'')+fmt(symbol,abs)+' · ':'')+sign+fmt(symbol,pct)+'%';changeEl.className='pair-change '+(pct>0?'positive':pct<0?'negative':'')}
+     else{changeEl.textContent=labels[language()].waiting;changeEl.className='pair-change'}
     });
-  };
-  async function refresh(){
-    setStatus('loading',labels[language()].loading);
-    try{
-      const response=await fetch(endpoint,{method:'GET',headers:{'Accept':'application/json'},cache:'no-store',signal:AbortSignal.timeout(15000)});
-      const data=await response.json();
-      if(!response.ok){
-        const kind=data.status==='unconfigured'?'unconfigured':'error';
-        throw new Error(kind);
-      }
-      if(!Array.isArray(data.quotes))throw new Error('error');
-      const receivedAt=Date.parse(data.fetchedAt||'');
-      const isStale=!Number.isFinite(receivedAt)||(Date.now()-receivedAt)>180000;
-      const bySymbol=new Map(data.quotes.map(q=>[q.symbol,q]));
-      let rendered=0;
-      tiles.forEach(tile=>{
-        const symbol=tile.dataset.symbol;
-        const quote=bySymbol.get(symbol);
-        const priceEl=tile.querySelector('[data-price]');
-        const changeEl=tile.querySelector('[data-change]');
-        if(!quote||!Number.isFinite(Number(quote.price))){
-          priceEl.textContent='—';
-          changeEl.textContent=labels[language()].waiting;
-          changeEl.className='pair-change';
-          return;
-        }
-        rendered++;
-        priceEl.textContent=numberFormat(symbol,Number(quote.price));
-        const change=quote.percentChange===null||quote.percentChange===undefined?NaN:Number(quote.percentChange);
-        const absolute=quote.change===null||quote.change===undefined?NaN:Number(quote.change);
-        if(Number.isFinite(change)){
-          const sign=change>0?'+':'';
-          changeEl.textContent=(Number.isFinite(absolute)?(absolute>0?'+':'')+numberFormat(symbol,absolute)+' · ':'')+sign+numberFormat(symbol,change)+'%';
-          changeEl.className='pair-change '+(change>0?'positive':change<0?'negative':'');
-        }else{
-          changeEl.textContent=labels[language()].waiting;
-          changeEl.className='pair-change';
-        }
-      });
-      if(!rendered)throw new Error('error');
-      const dateText=Number.isFinite(receivedAt)?new Intl.DateTimeFormat(language()==='fa'?'fa-IR':'en-GB',{dateStyle:'short',timeStyle:'medium'}).format(new Date(receivedAt)):'—';
-      updatedEl.textContent=labels[language()].updated+dateText;
-      if(isStale)setStatus('error',labels[language()].stale);
-      else if(data.status==='partial'||rendered<tiles.length)setStatus('loading',labels[language()].partial);
-      else setStatus('ok',labels[language()].ok);
-    }catch(error){
-      clearQuotes();
-      updatedEl.textContent=error.message==='unconfigured'?labels[language()].unconfigured:labels[language()].error;
-      setStatus('error',error.message==='unconfigured'?labels[language()].unconfigured:labels[language()].error);
-    }
-  }
-  refresh();
-  window.setInterval(refresh,30000);
+    const dateText=Number.isFinite(receivedAt)?new Intl.DateTimeFormat(language()==='fa'?'fa-IR':'en-GB',{dateStyle:'short',timeStyle:'medium'}).format(new Date(receivedAt)):'—';
+    item.updated.textContent=labels[language()].updated+dateText;
+    if(!count)status(item,'error',labels[language()].error);
+    else if(stale)status(item,'error',labels[language()].stale);
+    else if(data.status==='partial'||count<item.tiles.length)status(item,'loading',labels[language()].partial);
+    else status(item,'ok',labels[language()].ok);
+   });
+  }catch(error){strips.forEach(item=>{clear(item);item.updated.textContent=error.message==='unconfigured'?labels[language()].unconfigured:labels[language()].error;status(item,'error',error.message==='unconfigured'?labels[language()].unconfigured:labels[language()].error)})}
+ }
+ refresh();window.setInterval(refresh,30000);
 })();
 </script>
 
