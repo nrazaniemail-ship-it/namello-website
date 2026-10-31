@@ -456,6 +456,12 @@ html[dir="ltr"] .market-strip-head{letter-spacing:.06em}html[dir="ltr"] .pair-ti
  .radar-flow-grid{grid-template-columns:minmax(0,1fr)!important;row-gap:62px!important;column-gap:0!important}
  .radar-flow-grid>.radar-node:nth-child(n){grid-column:1!important}
 }
+
+/* namello-radar-title-mark-size-v1: keep the brand mark subordinate to the heading */
+.radar-flow .radar-title-lockup{display:flex;align-items:center;gap:12px;min-width:0}
+.radar-flow .radar-title-mark{display:block;width:clamp(38px,4vw,56px)!important;height:clamp(38px,4vw,56px)!important;max-width:56px!important;max-height:56px!important;flex:0 0 clamp(38px,4vw,56px);object-fit:contain;border-radius:10px}
+.radar-flow .radar-title-lockup h2{min-width:0;margin:0}
+@media(max-width:580px){.radar-flow .radar-title-lockup{gap:9px}.radar-flow .radar-title-mark{width:38px!important;height:38px!important;max-width:38px!important;max-height:38px!important;flex-basis:38px}}
 </style>
 </head>
 <body><a class="skip-link" href="#content-fa">رفتن به محتوای اصلی</a><svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
