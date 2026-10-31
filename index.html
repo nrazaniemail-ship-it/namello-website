@@ -533,6 +533,52 @@ html[dir="ltr"] .radar-flow-grid>.radar-node{text-align:left}
  .radar-flow-grid>.radar-node:nth-child(9):after{display:none!important}
 }
 
+
+/* namello-radar-arrow-connectors-v2: explicit large arrow glyphs */
+.radar-flow-grid > article.radar-node::after{
+  content:"⟵"!important;
+  display:block!important;
+  position:absolute!important;
+  z-index:20!important;
+  width:auto!important;height:auto!important;min-width:0!important;
+  padding:0!important;margin:0!important;
+  border:0!important;border-radius:0!important;
+  background:none!important;box-shadow:none!important;
+  color:#a8f3d8!important;
+  font-family:Arial,sans-serif!important;
+  font-size:clamp(2.8rem,4.2vw,3.8rem)!important;
+  font-weight:900!important;line-height:1!important;
+  text-shadow:0 0 18px rgba(115,255,210,.65),0 3px 10px #000!important;
+  transform:none!important;
+  top:50%!important;bottom:auto!important;
+  left:-52px!important;right:auto!important;
+}
+.radar-flow-grid > article.radar-node:nth-child(3)::after,
+.radar-flow-grid > article.radar-node:nth-child(6)::after{
+  content:"⬇"!important;
+  top:auto!important;bottom:-52px!important;
+  left:50%!important;right:auto!important;
+  transform:translateX(-50%)!important;
+  font-size:3.1rem!important;
+}
+.radar-flow-grid > article.radar-node:nth-child(4)::after,
+.radar-flow-grid > article.radar-node:nth-child(5)::after{
+  content:"⟶"!important;
+  left:auto!important;right:-52px!important;
+}
+.radar-flow-grid > article.radar-node:nth-child(9)::after{content:none!important;display:none!important}
+@media(max-width:900px){
+ .radar-flow-grid > article.radar-node::after{
+  content:"⬇"!important;top:auto!important;bottom:-48px!important;
+  left:50%!important;right:auto!important;transform:translateX(-50%)!important;
+  font-size:3rem!important;
+ }
+ .radar-flow-grid > article.radar-node:nth-child(9)::after{display:none!important}
+}
+@media(max-width:580px){
+ .radar-flow-grid > article.radar-node::after{bottom:-46px!important;font-size:2.9rem!important}
+}
+
 </style>
 </head>
 <body><a class="skip-link" href="#content-fa">رفتن به محتوای اصلی</a><svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
