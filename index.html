@@ -354,6 +354,32 @@ html[dir="ltr"] .market-strip-head{letter-spacing:.06em}html[dir="ltr"] .pair-ti
 }
 @media(prefers-reduced-motion:reduce){.market-pairs .pair-tile{transition:none}.market-pairs .pair-tile:hover{transform:none}}
 
+
+/* Market Intelligence: live-derived currency strength, concise brief and conversion path */
+.market-insights{margin:18px auto 38px;padding:clamp(17px,3vw,25px);border:1px solid #3e5b76;border-radius:22px;background:radial-gradient(ellipse at 95% 0%,#285c5940,transparent 45%),linear-gradient(135deg,#132a40,#0b1929);box-shadow:0 18px 45px #0004}
+.market-insights-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:18px}
+.market-insights-head h2{margin:5px 0;font-size:clamp(1.25rem,2.6vw,1.7rem);color:#f4d394}
+.market-insights-head p{margin:0;color:var(--muted);font-size:.9rem;max-width:760px}
+.market-derived-badge{white-space:nowrap;padding:6px 10px;border:1px solid #3f7568;border-radius:999px;color:#9ce8cd;background:#12332f;font-size:.72rem;font-weight:800}
+.market-insights-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.market-insight-card{min-width:0;padding:17px;border:1px solid #354f68;border-radius:16px;background:linear-gradient(145deg,#172e45,#102236)}
+.market-insight-card h3{margin:0 0 12px;color:#f3f6fc;font-size:1rem}
+.market-insight-card small{display:block;margin-top:12px;color:#aebfd1;font-size:.72rem;line-height:1.8}
+.strength-row{display:grid;grid-template-columns:42px 1fr 55px;align-items:center;gap:8px;margin:10px 0;font-size:.82rem}
+.strength-row b{color:#eaf2fb}.strength-track{height:9px;border-radius:99px;background:#071522;overflow:hidden;border:1px solid #304962}
+.strength-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#4a9f91,#9be8cd);width:50%;transition:width .35s ease}
+.strength-value{text-align:end;direction:ltr;font-variant-numeric:tabular-nums;color:#c6d6e7;font-size:.75rem}
+.market-brief p{margin:7px 0;color:#c7d5e4;font-size:.86rem;line-height:1.85}
+.market-brief strong{color:#f4d394}
+.market-calendar-card p{margin:0 0 14px;color:#c7d5e4;font-size:.87rem;line-height:1.9}
+.market-calendar-card .btn{font-size:.82rem;padding:8px 12px}
+.market-insights-cta{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:14px;padding:15px 17px;border:1px solid #66583d;border-radius:15px;background:linear-gradient(110deg,#292318,#17283a)}
+.market-insights-cta strong,.market-insights-cta span{display:block}.market-insights-cta strong{color:#f5d69b}.market-insights-cta span{color:#c4d0df;font-size:.82rem;margin-top:3px}
+.market-insights-cta .btn{flex:0 0 auto}
+.market-empty{color:#afc1d4;font-size:.85rem}
+@media(max-width:850px){.market-insights-grid{grid-template-columns:1fr 1fr}.market-calendar-card{grid-column:1/-1}}
+@media(max-width:560px){.market-insights{margin:12px auto 25px;padding:14px;border-radius:17px}.market-insights-head{display:block}.market-derived-badge{display:inline-block;margin-top:10px}.market-insights-grid{grid-template-columns:1fr}.market-calendar-card{grid-column:auto}.market-insights-cta{display:block}.market-insights-cta .btn{margin-top:12px}.strength-row{grid-template-columns:38px 1fr 50px}}
+
 </style>
 </head>
 <body><a class="skip-link" href="#content-fa">رفتن به محتوای اصلی</a><svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
@@ -392,7 +418,16 @@ html[dir="ltr"] .market-strip-head{letter-spacing:.06em}html[dir="ltr"] .pair-ti
 <div class="pair-tile" data-symbol="EUR/GBP"><span>EUR / GBP</span><b>یورو · پوند</b><strong class="pair-price" data-price>—</strong><small class="pair-change" data-change>—</small></div>
 </div>
 <div class="market-strip-foot"><span id="market-updated">قیمت‌ها پس از دریافت پاسخ معتبر نمایش داده می‌شوند.</span><span>منبع داده: Twelve Data</span></div>
-</div></div>
+</div>
+<section class="market-insights" aria-label="تحلیل سریع بازار">
+ <div class="market-insights-head"><div><span class="intelligence-label">NAMELLO / MARKET PULSE</span><h2>نبض بازار در یک نگاه</h2><p>قدرت نسبی ارزها بر اساس درصد تغییر نمادهای منتخب؛ محاسبه‌ای ساده از داده‌های دریافتی، نه سیگنال معاملاتی.</p></div><span class="market-derived-badge">محاسبه‌شده از داده زنده</span></div>
+ <div class="market-insights-grid">
+  <article class="market-insight-card"><h3>قدرت نسبی ارزها</h3><div class="strength-list" id="currency-strength-fa"><p class="market-empty">در انتظار دریافت داده معتبر…</p></div><small>مبنای محاسبه: تغییرات درصدی EUR/USD، GBP/USD، USD/JPY و EUR/GBP. مقادیر نسبی‌اند و شاخص رسمی بازار نیستند.</small></article>
+  <article class="market-insight-card"><h3>خلاصه حرکت بازار</h3><div id="market-brief-fa" class="market-brief"><p>پس از دریافت داده‌های معتبر، خلاصه‌ای توصیفی از تغییرات نمادها نمایش داده می‌شود.</p></div><small>این خلاصه به‌صورت خودکار از تغییرات ثبت‌شده محاسبه می‌شود و تحلیل بنیادی یا پیش‌بینی قیمت نیست.</small></article>
+  <article class="market-insight-card market-calendar-card"><h3>تقویم رویدادهای اقتصادی</h3><p>برای مشاهده زمان انتشار شاخص‌های تورم، اشتغال، نرخ بهره و سایر رویدادهای اثرگذار، تقویم اقتصادی را در منبع تخصصی بررسی کنید.</p><a class="btn" href="https://www.investing.com/economic-calendar/" target="_blank" rel="noopener">مشاهده تقویم اقتصادی ↗</a><small>زمان و اهمیت رویدادها را با منطقه زمانی دستگاه خود تطبیق دهید. این پیوند به منبع بیرونی می‌رود؛ داده تقویم هنوز مستقیماً در Namello میزبانی نمی‌شود.</small></article>
+ </div>
+ <div class="market-insights-cta"><div><strong>بازار را ببین؛ عملکرد خودت را هم بشناس.</strong><span>برای تحلیل ساعت، نماد، سشن، هزینه و کیفیت معاملات، سوابق خودت را در ژورنال Namello ثبت کن.</span></div><a class="btn primary" href="#preview">آشنایی با اپلیکیشن Namello</a></div>
+</section>
 <section class="hero"><div><div class="eyebrow"><span class="eyebrow-dot"></span> ژورنال و میز تحلیل معامله‌گر فارکس</div><h1>فقط معامله نکن؛<br><span class="hero-gradient">عملکردت را بشناس.</span></h1><p>از ثبت دقیق هر پوزیشن تا بررسی ریسک، رفتار و کیفیت استراتژی؛ Namello تجربه‌های پراکنده معاملاتی را به سابقه‌ای منظم و قابل تحلیل تبدیل می‌کند.</p><div class="actions"><a class="btn primary" href="#preview">مشاهده محیط واقعی برنامه</a><a class="btn" href="#distinctive">کشف ابزارهای تحلیلی</a></div><div class="hero-highlights" aria-label="مزیت‌های اصلی نملو"><div class="hero-highlight"><b>⚡ ثبت سریع و کامل</b><span>جزئیات بیشتر، در زمان کمتر</span></div><div class="hero-highlight"><b>🖼️ استخراج از تصویر</b><span>کمک به ورود پارامترهای معامله</span></div><div class="hero-highlight"><b>🎯 تحلیل احتمال موفقیت</b><span>برآورد آماری بر پایه سوابق</span></div></div></div>
 <div class="hero-product-shot"><div class="product-shot-top"><span>نمای واقعی از Namello</span><span>داشبورد</span></div><a href="assets/screenshots/dashboard.jpg" target="_blank" rel="noopener" aria-label="مشاهده تصویر کامل داشبورد Namello"><img src="assets/screenshots/dashboard.jpg" alt="نمای واقعی داشبورد اپلیکیشن Namello" fetchpriority="high"></a><p>برای مشاهده جزئیات، تصویر را باز کنید.</p></div></section>
 <section class="section" id="preview"><div class="section-head"><div class="kicker">پیش‌نمایش برنامه</div><h2>نمایی از محیط واقعی نملو</h2><p class="lead">با صفحات اصلی برنامه آشنا شوید. برای مشاهده هر تصویر در اندازه بزرگ‌تر، روی آن بزنید.</p></div><div class="preview-grid">
@@ -455,7 +490,16 @@ html[dir="ltr"] .market-strip-head{letter-spacing:.06em}html[dir="ltr"] .pair-ti
 <section class="section" id="contact"><div class="contact"><div class="kicker">ارتباط با ما</div><h2>با نملو در ارتباط باشید</h2><p class="lead">پرسش، پیشنهاد یا بازخورد شما به بهتر شدن تجربه Namello کمک می‌کند.</p><p><a href="mailto:namellotradingjournal@gmail.com">namellotradingjournal@gmail.com</a></p></div><p class="disclaimer">نملو ابزار ثبت و مرور عملکرد معاملاتی است؛ محتوای آن توصیه مالی، پیشنهاد خریدوفروش یا تضمین سود محسوب نمی‌شود. تصمیم‌های معاملاتی و مدیریت ریسک بر عهده کاربر است.</p></section>
 </main>
 
-<main id="content-en" hidden><div class="wrap"><div class="market-strip" id="namello-market-strip-en" aria-label="Live selected market instruments"><div class="market-strip-head"><span class="live-mark"></span><strong>FOREX TRADER DESK</strong><span class="sample-label" id="market-status-en" role="status" aria-live="polite">Loading market data…</span></div><div class="market-pairs"><div class="pair-tile" data-symbol="EUR/USD"><span>EUR / USD</span><b>Euro · US Dollar</b><strong class="pair-price" data-price>—</strong><small class="pair-change" data-change>Waiting for valid data</small></div><div class="pair-tile" data-symbol="GBP/USD"><span>GBP / USD</span><b>Pound · US Dollar</b><strong class="pair-price" data-price>—</strong><small class="pair-change" data-change>Waiting for valid data</small></div><div class="pair-tile" data-symbol="USD/JPY"><span>USD / JPY</span><b>US Dollar · Yen</b><strong class="pair-price" data-price>—</strong><small class="pair-change" data-change>Waiting for valid data</small></div><div class="pair-tile" data-symbol="XAU/USD"><span>XAU / USD</span><b>Gold · US Dollar</b><strong class="pair-price" data-price>—</strong><small class="pair-change" data-change>Waiting for valid data</small></div><div class="pair-tile" data-symbol="EUR/GBP"><span>EUR / GBP</span><b>Euro · Pound</b><strong class="pair-price" data-price>—</strong><small class="pair-change" data-change>Waiting for valid data</small></div></div><div class="market-strip-foot"><span id="market-updated-en">Prices appear after a valid response.</span><span>Data provider: Twelve Data</span></div></div></div>
+<main id="content-en" hidden><div class="wrap"><div class="market-strip" id="namello-market-strip-en" aria-label="Live selected market instruments"><div class="market-strip-head"><span class="live-mark"></span><strong>FOREX TRADER DESK</strong><span class="sample-label" id="market-status-en" role="status" aria-live="polite">Loading market data…</span></div><div class="market-pairs"><div class="pair-tile" data-symbol="EUR/USD"><span>EUR / USD</span><b>Euro · US Dollar</b><strong class="pair-price" data-price>—</strong><small class="pair-change" data-change>Waiting for valid data</small></div><div class="pair-tile" data-symbol="GBP/USD"><span>GBP / USD</span><b>Pound · US Dollar</b><strong class="pair-price" data-price>—</strong><small class="pair-change" data-change>Waiting for valid data</small></div><div class="pair-tile" data-symbol="USD/JPY"><span>USD / JPY</span><b>US Dollar · Yen</b><strong class="pair-price" data-price>—</strong><small class="pair-change" data-change>Waiting for valid data</small></div><div class="pair-tile" data-symbol="XAU/USD"><span>XAU / USD</span><b>Gold · US Dollar</b><strong class="pair-price" data-price>—</strong><small class="pair-change" data-change>Waiting for valid data</small></div><div class="pair-tile" data-symbol="EUR/GBP"><span>EUR / GBP</span><b>Euro · Pound</b><strong class="pair-price" data-price>—</strong><small class="pair-change" data-change>Waiting for valid data</small></div></div><div class="market-strip-foot"><span id="market-updated-en">Prices appear after a valid response.</span><span>Data provider: Twelve Data</span></div></div>
+<section class="market-insights" aria-label="Market pulse and trader tools">
+ <div class="market-insights-head"><div><span class="intelligence-label">NAMELLO / MARKET PULSE</span><h2>Market pulse at a glance</h2><p>Relative currency strength derived from percentage changes in selected instruments. This is a simple calculation from received quotes, not a trading signal.</p></div><span class="market-derived-badge">Derived from live quotes</span></div>
+ <div class="market-insights-grid">
+  <article class="market-insight-card"><h3>Relative currency strength</h3><div class="strength-list" id="currency-strength-en"><p class="market-empty">Waiting for valid market data…</p></div><small>Calculation uses percentage changes in EUR/USD, GBP/USD, USD/JPY, and EUR/GBP. Values are relative, not an official market index.</small></article>
+  <article class="market-insight-card"><h3>Market movement brief</h3><div id="market-brief-en" class="market-brief"><p>A descriptive summary of instrument moves will appear after valid quotes arrive.</p></div><small>This summary is calculated automatically from reported changes; it is not fundamental analysis or a price forecast.</small></article>
+  <article class="market-insight-card market-calendar-card"><h3>Economic calendar</h3><p>Check release times for inflation, employment, interest-rate decisions, and other market-moving events using a specialist calendar.</p><a class="btn" href="https://www.investing.com/economic-calendar/" target="_blank" rel="noopener">Open economic calendar ↗</a><small>Check event times against your device time zone. This opens an external source; calendar data is not yet hosted directly by Namello.</small></article>
+ </div>
+ <div class="market-insights-cta"><div><strong>Follow the market. Understand your own performance.</strong><span>Record trades in Namello to review sessions, symbols, costs, and execution quality.</span></div><a class="btn primary" href="#preview-en">Explore the Namello app</a></div>
+</section>
 <section class="hero"><div><div class="eyebrow"><span class="eyebrow-dot"></span> JOURNAL & ANALYSIS DESK FOR FOREX TRADERS</div><h1>Don’t just trade.<br><span class="hero-gradient">Understand your edge.</span></h1><p>From recording every position to reviewing risk, behavior, and strategy quality, Namello turns scattered trading experiences into an organized record you can learn from.</p><div class="actions"><a class="btn primary" href="#distinctive-en">Explore key capabilities</a><a class="btn" href="mailto:namellotradingjournal@gmail.com">Contact our team</a></div><div class="hero-highlights" aria-label="Namello key advantages"><div class="hero-highlight"><b>⚡ Fast, detailed entry</b><span>Capture more in less time</span></div><div class="hero-highlight"><b>🖼️ Image extraction</b><span>Assist with trade parameter entry</span></div><div class="hero-highlight"><b>🎯 Success probability analysis</b><span>Statistical estimates from history</span></div></div></div>
 <div class="dashboard-art"><div class="art-head"><span>NAMELLO / TRADING JOURNAL</span><span>01 — OVERVIEW</span></div><div class="art-title">From recording to review</div><div class="art-value">Trade with clarity.</div><div class="chart"><i style="height:35%"></i><i style="height:52%"></i><i style="height:43%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:91%"></i><i style="height:77%"></i></div><div class="art-foot"><div class="mini"><b>Journal</b>Capture experiences</div><div class="mini"><b>Insights</b>Understand performance</div><div class="mini"><b>Sessions</b>Market timing</div></div><p class="disclaimer">Conceptual graphic, not an actual screenshot of the app.</p></div></section>
 <section class="section" id="preview-en"><div class="section-head"><div class="kicker">APP PREVIEW</div><h2>Explore the Namello interface</h2><p class="lead">Take a look at the app's main screens. Select any image to open it at full size.</p></div><div class="preview-grid">
@@ -630,6 +674,39 @@ setLanguage(saved);
   }catch(error){strips.forEach(item=>{clear(item);item.updated.textContent=error.message==='unconfigured'?labels[language()].unconfigured:labels[language()].error;status(item,'error',error.message==='unconfigured'?labels[language()].unconfigured:labels[language()].error)})}
  }
  refresh();window.setInterval(refresh,30000);
+})();
+</script>
+
+
+<script>
+(function(){
+ const pairs=[['EUR/USD','EUR','USD'],['GBP/USD','GBP','USD'],['USD/JPY','USD','JPY'],['EUR/GBP','EUR','GBP']];
+ const configs=[
+  {lang:'fa',strength:'currency-strength-fa',brief:'market-brief-fa',names:{EUR:'یورو',USD:'دلار آمریکا',GBP:'پوند',JPY:'ین'},up:'قوی‌ترین ارز نسبی در این مجموعه',down:'ضعیف‌ترین ارز نسبی در این مجموعه',gold:'تغییر طلا در داده دریافتی',none:'برای محاسبه، تغییر درصدی کافی از جفت‌ارزها در دسترس نیست.'},
+  {lang:'en',strength:'currency-strength-en',brief:'market-brief-en',names:{EUR:'EUR',USD:'USD',GBP:'GBP',JPY:'JPY'},up:'Strongest relative currency in this set',down:'Weakest relative currency in this set',gold:'Gold move in received data',none:'Not enough percentage-change data to calculate relative strength.'}
+ ];
+ function render(data){
+  if(!data||!Array.isArray(data.quotes))return;
+  const q=new Map(data.quotes.map(x=>[x.symbol,x]));
+  const sums={EUR:0,USD:0,GBP:0,JPY:0},counts={EUR:0,USD:0,GBP:0,JPY:0};
+  pairs.forEach(([symbol,base,quote])=>{const p=Number(q.get(symbol)?.percentChange);if(!Number.isFinite(p))return;sums[base]+=p;sums[quote]-=p;counts[base]++;counts[quote]++;});
+  const values=Object.keys(sums).map(k=>({key:k,value:counts[k]?sums[k]/counts[k]:NaN})).filter(x=>Number.isFinite(x.value));
+  if(!values.length)return;
+  values.sort((a,b)=>b.value-a.value);
+  configs.forEach(c=>{
+   const root=document.getElementById(c.strength),brief=document.getElementById(c.brief);if(!root||!brief)return;
+   const max=Math.max(0.0001,...values.map(x=>Math.abs(x.value)));
+   root.innerHTML=values.map(x=>'<div class="strength-row"><b>'+c.names[x.key]+'</b><div class="strength-track"><div class="strength-fill" style="width:'+Math.max(3,Math.min(100,Math.abs(x.value)/max*100))+'%"></div></div><span class="strength-value">'+(x.value>0?'+':'')+x.value.toFixed(3)+'%</span></div>').join('');
+   const gold=q.get('XAU/USD'),gp=Number(gold?.percentChange);
+   const parts=[];
+   if(values.length>1)parts.push('<p><strong>'+c.up+':</strong> '+c.names[values[0].key]+' ('+(values[0].value>0?'+':'')+values[0].value.toFixed(3)+'%).</p><p><strong>'+c.down+':</strong> '+c.names[values[values.length-1].key]+' ('+(values[values.length-1].value>0?'+':'')+values[values.length-1].value.toFixed(3)+'%).</p>');
+   if(Number.isFinite(gp))parts.push('<p><strong>'+c.gold+':</strong> '+(gp>0?'+':'')+gp.toFixed(3)+'%.</p>');
+   brief.innerHTML=parts.join('')||'<p>'+c.none+'</p>';
+  });
+ }
+ const endpoint='https://namello-1-0-1.onrender.com/api/market';
+ async function update(){try{const r=await fetch(endpoint,{headers:{Accept:'application/json'},cache:'no-store'});if(!r.ok)return;const d=await r.json();render(d)}catch(e){}}
+ update();window.setInterval(update,30000);
 })();
 </script>
 
