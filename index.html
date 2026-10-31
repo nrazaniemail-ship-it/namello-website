@@ -302,6 +302,58 @@ html[dir="ltr"] .market-strip-head{letter-spacing:.06em}html[dir="ltr"] .pair-ti
 #namello-market-strip.market-error #market-status-dot{background:#ff9b9b;box-shadow:0 0 0 4px #ff9b9b22,0 0 12px #ff9b9b}
 @media(max-width:560px){.market-strip-foot{font-size:.61rem;flex-wrap:wrap}.pair-price{font-size:.96rem}}
 
+/* Premium, clearer live-market desk */
+.market-strip{
+ position:relative;isolation:isolate;margin:22px auto 0;padding:19px 20px 15px;
+ border:1px solid #42617f;border-radius:22px;
+ background:radial-gradient(ellipse at 8% -25%,#4e83b344,transparent 48%),radial-gradient(ellipse at 96% 115%,#1c876c24,transparent 42%),linear-gradient(125deg,#0a1929 0%,#10283e 52%,#091725 100%);
+ box-shadow:0 18px 48px #0005,inset 0 1px #b6d7f21c;overflow:hidden
+}
+.market-strip:before{width:4px;opacity:.95}
+.market-strip:after{content:"";position:absolute;z-index:-1;width:190px;height:190px;inset:auto -70px -120px auto;border:1px solid #8be2c31c;border-radius:50%;box-shadow:0 0 0 22px #8be2c30a,0 0 0 45px #8be2c307}
+.market-strip-head{position:relative;display:flex;align-items:center;gap:11px;min-height:34px;margin-bottom:15px;font-size:.9rem}
+.market-strip-head strong{font-size:1rem;font-weight:900;letter-spacing:.015em;color:#f3f7ff}
+.market-strip-head .sample-label{margin-inline-start:auto;padding:6px 10px;border:1px solid #49627a;border-radius:999px;background:#091827a8;color:#c4d6e8;font-size:.69rem;letter-spacing:0}
+.live-mark{width:8px;height:8px;flex-basis:8px}
+.market-pairs{position:relative;z-index:1;gap:10px}
+.market-pairs .pair-tile{
+ position:relative;min-height:120px;justify-content:center;gap:4px;padding:13px 13px 12px;
+ border:1px solid #34516d;border-radius:15px;
+ background:linear-gradient(150deg,#19334d 0%,#102338 72%,#0d1e30 100%);
+ box-shadow:inset 0 1px #c4e0fa0c,0 7px 18px #0002;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease
+}
+.market-pairs .pair-tile:before{content:"";position:absolute;inset:0 12px auto;height:2px;border-radius:0 0 5px 5px;background:linear-gradient(90deg,#79baff88,transparent)}
+.market-pairs .pair-tile:hover{transform:translateY(-3px);border-color:#79baffaa;box-shadow:inset 0 1px #c4e0fa12,0 12px 25px #0004}
+.pair-tile span{font-size:.91rem;letter-spacing:.07em;color:#f5f8fd}
+.pair-tile b{margin-top:1px;color:#a9bfd5;font-size:.72rem;font-weight:550}
+.pair-price{margin-top:8px;color:#ffe0a1;font-size:clamp(1rem,1.35vw,1.22rem);font-weight:900;letter-spacing:.015em}
+.pair-change{font-size:.7rem;font-weight:750}
+.market-strip-foot{position:relative;z-index:1;align-items:center;margin-top:13px;padding-top:10px;border-top:1px solid #42607b66;color:#a8bed2;font-size:.7rem}
+.market-strip-foot span:last-child{padding:4px 8px;border:1px solid #3d5872;border-radius:8px;background:#07152288}
+#namello-market-strip.market-ok #market-status,#namello-market-strip-en.market-ok #market-status-en{color:#9be8cd}
+#namello-market-strip.market-error #market-status,#namello-market-strip-en.market-error #market-status-en{color:#ffaaaa}
+#namello-market-strip-en .pair-tile b{font-size:.73rem}
+@media(max-width:850px){
+ .market-pairs{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .market-pairs .pair-tile:nth-child(n+4){display:flex}
+ .market-pairs .pair-tile{min-height:112px}
+}
+@media(max-width:560px){
+ .market-strip{margin-top:14px;padding:14px 12px 12px;border-radius:18px}
+ .market-strip-head{flex-wrap:wrap;gap:8px;margin-bottom:12px}
+ .market-strip-head strong{font-size:.87rem}
+ .market-strip-head .sample-label{font-size:.63rem;padding:5px 8px}
+ .market-pairs{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ .market-pairs .pair-tile,.market-pairs .pair-tile:nth-child(n+4){display:flex;min-height:108px;padding:10px 10px}
+ .market-pairs .pair-tile:last-child{grid-column:1/-1;min-height:94px}
+ .pair-tile span{font-size:.83rem}
+ .pair-tile b,#namello-market-strip-en .pair-tile b{font-size:.67rem}
+ .pair-price{font-size:1rem;margin-top:6px}
+ .pair-change{font-size:.64rem}
+ .market-strip-foot{font-size:.62rem;gap:7px}
+}
+@media(prefers-reduced-motion:reduce){.market-pairs .pair-tile{transition:none}.market-pairs .pair-tile:hover{transform:none}}
+
 </style>
 </head>
 <body><a class="skip-link" href="#content-fa">رفتن به محتوای اصلی</a><svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
