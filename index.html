@@ -437,6 +437,63 @@ html[dir="ltr"] .market-strip-head{letter-spacing:.06em}html[dir="ltr"] .pair-ti
 .radar-detail-controls .radar-detail-close{margin-inline-start:auto}
 @media(max-width:560px){.radar-detail-panel{padding:14px}.radar-detail-controls button{flex:1}.radar-detail-controls .radar-detail-close{margin-inline-start:0}}
 
+
+/* namello-radar-flow-direction-v2: explicit serpentine reading direction */
+.radar-flow-grid{
+  direction:ltr!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  grid-auto-flow:row;
+  align-items:stretch;
+  gap:24px 34px!important;
+}
+.radar-flow-grid>.radar-node{direction:inherit}
+.radar-flow-grid>.radar-node:nth-child(1),
+.radar-flow-grid>.radar-node:nth-child(7){grid-column:3}
+.radar-flow-grid>.radar-node:nth-child(2),
+.radar-flow-grid>.radar-node:nth-child(8){grid-column:2}
+.radar-flow-grid>.radar-node:nth-child(3),
+.radar-flow-grid>.radar-node:nth-child(9){grid-column:1}
+.radar-flow-grid>.radar-node:nth-child(4){grid-column:1}
+.radar-flow-grid>.radar-node:nth-child(5){grid-column:2}
+.radar-flow-grid>.radar-node:nth-child(6){grid-column:3}
+.radar-flow-grid>.radar-node:after{
+  content:"←"!important;
+  position:absolute;z-index:4;top:50%;bottom:auto;left:-29px;right:auto;
+  transform:translateY(-50%);width:25px;height:25px;
+  display:grid;place-items:center;border-radius:50%;
+  border:1px solid rgba(139,226,195,.58);
+  background:linear-gradient(145deg,#214c4b,#15333d);
+  color:#aaf0d8;font-size:1rem;font-weight:900;
+  box-shadow:0 0 0 4px rgba(139,226,195,.07),0 4px 12px #0004;
+}
+.radar-flow-grid>.radar-node:nth-child(3):after,
+.radar-flow-grid>.radar-node:nth-child(6):after{
+  content:"↓"!important;top:auto;bottom:-25px;left:50%;right:auto;
+  transform:translateX(-50%);
+}
+.radar-flow-grid>.radar-node:nth-child(4):after,
+.radar-flow-grid>.radar-node:nth-child(5):after{
+  content:"→"!important;left:auto;right:-29px;
+}
+.radar-flow-grid>.radar-node:nth-child(6):after{content:"↓"!important}
+.radar-flow-grid>.radar-node:nth-child(9):after{content:""!important;display:none}
+html[dir="rtl"] .radar-flow-grid>.radar-node{text-align:right}
+html[dir="ltr"] .radar-flow-grid>.radar-node{text-align:left}
+.radar-flow-grid>.radar-node{min-height:100%}
+.radar-loop-tag{font-weight:850}
+@media(max-width:900px){
+ .radar-flow-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:22px!important}
+ .radar-flow-grid>.radar-node:nth-child(n){grid-column:auto}
+ .radar-flow-grid>.radar-node:after{content:"↓"!important;top:auto;bottom:-24px;left:50%;right:auto;transform:translateX(-50%)}
+ .radar-flow-grid>.radar-node:nth-child(9):after{display:none}
+}
+@media(max-width:580px){
+ .radar-flow-grid{grid-template-columns:minmax(0,1fr)!important;gap:20px!important}
+ .radar-flow-grid>.radar-node:nth-child(n){grid-column:1}
+ .radar-flow-grid>.radar-node:after{content:"↓"!important;top:auto;bottom:-23px;left:50%;right:auto;transform:translateX(-50%)}
+ .radar-flow-grid>.radar-node:nth-child(9):after{display:none}
+}
+
 </style>
 </head>
 <body><a class="skip-link" href="#content-fa">رفتن به محتوای اصلی</a><svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
