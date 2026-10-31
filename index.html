@@ -1122,4 +1122,30 @@ setLanguage(saved);
  document.querySelectorAll('.radar-flow-grid').forEach(setup);
 })();
 </script>
+
+<script id="namello-radar-app-deep-links-v1">
+(function () {
+  const routeByAnchor = {
+    journal: "journal", "journal-en": "journal",
+    dashboard: "dashboard", "dashboard-en": "dashboard",
+    finance: "finance", "finance-en": "finance",
+    sessions: "sessions", "sessions-en": "sessions"
+  };
+  document.addEventListener("click", function (event) {
+    const anchor = event.target && event.target.closest
+      ? event.target.closest(".radar-app-ref a[href^='#']")
+      : null;
+    if (!anchor || !/Android/i.test(navigator.userAgent)) return;
+    const anchorId = (anchor.getAttribute("href") || "").slice(1);
+    const section = routeByAnchor[anchorId];
+    if (!section) return;
+    event.preventDefault();
+    const fallbackUrl = new URL(anchor.getAttribute("href"), window.location.href).href;
+    const intentUrl = "intent://open?section=" + encodeURIComponent(section) +
+      "#Intent;scheme=namello;package=com.namello.app;S.browser_fallback_url=" +
+      encodeURIComponent(fallbackUrl) + ";end";
+    window.location.href = intentUrl;
+  });
+})();
+</script>
 </body></html>
