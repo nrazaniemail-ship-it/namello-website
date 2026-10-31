@@ -934,11 +934,11 @@ setLanguage(saved);
       return {x:c.x+ux*t*sign,y:c.y+uy*t*sign};
     };
     const p1=edge(ra,ac,1),p2=edge(rb,bc,-1);
-    const bend=mobile?0:Math.min(26,len*.09)*(i%2===0?1:-1);
-    const mx=(p1.x+p2.x)/2-(uy*bend),my=(p1.y+p2.y)/2+(ux*bend);
-    const d='M '+ns(p1.x)+' '+ns(p1.y)+' Q '+ns(mx)+' '+ns(my)+' '+ns(p2.x)+' '+ns(p2.y);
+    // Keep the existing ribbon styling, but route each connector with straight segments and at most one 90-degree turn.
+    const corner=Math.abs(dx)>=Math.abs(dy)?{x:p2.x,y:p1.y}:{x:p1.x,y:p2.y};
+    const d='M '+ns(p1.x)+' '+ns(p1.y)+' L '+ns(corner.x)+' '+ns(corner.y)+' L '+ns(p2.x)+' '+ns(p2.y);
     paths.push(d);
-    const tx=p2.x-mx,ty=p2.y-my,tl=Math.hypot(tx,ty)||1,vx=tx/tl,vy=ty/tl,px=-vy,py=vx;
+    const tx=p2.x-corner.x,ty=p2.y-corner.y,tl=Math.hypot(tx,ty)||1,vx=tx/tl,vy=ty/tl,px=-vy,py=vx;
     const size=mobile?13:15,wide=mobile?9:10;
     const bx=p2.x-vx*size,by=p2.y-vy*size;
     polys.push([[p2.x,p2.y],[bx+px*wide,by+py*wide],[bx-px*wide,by-py*wide]].map(p=>ns(p[0])+','+ns(p[1])).join(' '));
