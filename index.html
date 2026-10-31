@@ -579,6 +579,27 @@ html[dir="ltr"] .radar-flow-grid>.radar-node{text-align:left}
  .radar-flow-grid > article.radar-node::after{bottom:-46px!important;font-size:2.9rem!important}
 }
 
+
+/* namello-radar-circular-ribbon-connectors-v3 */
+.radar-flow-grid{position:relative!important;isolation:isolate}
+.radar-flow-grid>.radar-node{z-index:2!important}
+.radar-ribbon-arrows{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;overflow:visible}
+.radar-ribbon-arrows g{filter:drop-shadow(0 2px 5px rgba(0,0,0,.48))}
+.radar-flow-grid>.radar-node:after{content:none!important;display:none!important}
+@media(max-width:900px){
+ .radar-ribbon-arrows{display:none!important}
+ .radar-flow-grid>.radar-node:after{
+  content:""!important;display:block!important;position:absolute!important;
+  left:50%!important;right:auto!important;top:auto!important;bottom:-25px!important;
+  width:0!important;height:0!important;min-width:0!important;padding:0!important;
+  border:0!important;border-left:11px solid transparent!important;
+  border-right:11px solid transparent!important;border-top:17px solid #83d8b7!important;
+  border-radius:0!important;background:none!important;box-shadow:0 2px 7px #0005!important;
+  transform:translateX(-50%)!important;
+ }
+ .radar-flow-grid>.radar-node:nth-child(9):after{display:none!important}
+}
+
 </style>
 </head>
 <body><a class="skip-link" href="#content-fa">رفتن به محتوای اصلی</a><svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
@@ -649,7 +670,7 @@ html[dir="ltr"] .radar-flow-grid>.radar-node{text-align:left}
 <section class="section radar-flow" id="radar-process">
  <div class="section-head"><div class="kicker">NAMELLO / RADAR TRADING LOOP</div><div class="radar-title-lockup" dir="rtl"><img src="assets/screenshots/Namello.png" alt="نشان نملو" class="radar-title-mark" loading="lazy"><h2>رادار معامله‌گری؛ از پایش بازار تا بهینه‌سازی عملکرد به کمک دستیار نملو</h2></div><p class="lead">یک چرخه منظم برای تبدیل مشاهده بازار به تصمیم کنترل‌شده، ثبت داده و یادگیری. هدف، بهبود کیفیت فرآیند و سنجش‌پذیر کردن تصمیم‌هاست؛ نه تضمین سود.</p></div>
  <div class="radar-flow-intro"><span class="radar-pulse"></span><div><strong>چرخه اصلی معامله‌گر</strong><small>هر مرحله باید داده‌ای تولید کند که در مرحله بعد قابل بررسی باشد.</small></div><span class="radar-loop-tag">SCAN → PLAN → EXECUTE → REVIEW → OPTIMIZE</span></div>
- <div class="radar-flow-grid" dir="rtl">
+ <div class="radar-flow-grid" dir="rtl"><svg class="radar-ribbon-arrows" viewBox="0 0 1000 900" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="radarRibbon" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#76bda0"/><stop offset=".5" stop-color="#b4f0d7"/><stop offset="1" stop-color="#2b9674"/></linearGradient><marker id="radarRibbonHead" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 Q3 5 0 0" fill="#83d8b7"/></marker></defs><g fill="none" stroke="url(#radarRibbon)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#radarRibbonHead)"><path d="M690 150 C670 125 650 125 630 150"/><path d="M370 150 C350 125 330 125 310 150"/><path d="M170 270 C115 290 115 330 170 350"/><path d="M310 450 C330 475 350 475 370 450"/><path d="M630 450 C650 475 670 475 690 450"/><path d="M830 570 C885 590 885 630 830 650"/><path d="M690 750 C670 775 650 775 630 750"/><path d="M370 750 C350 775 330 775 310 750"/></g></svg>
   <article class="radar-node radar-start"><span class="radar-number">۰۱</span><span class="radar-node-icon">⌖</span><h3>پایش راداری بازار</h3><p>سشن فعال، روند و ساختار قیمت، نوسان، قدرت ارزها و رویدادهای اقتصادی را بررسی کن.</p><small>خروجی: فهرست نمادها و سناریوهای قابل‌بررسی</small></article>
   <article class="radar-node"><span class="radar-number">۰۲</span><span class="radar-node-icon">◎</span><h3>تعریف ستاپ و مزیت</h3><p>شرایط ورود، تایم‌فریم، جهت معامله، نقطه ابطال و نسبت سود به زیان مورد انتظار را از قبل مشخص کن.</p><small>خروجی: پلن معاملاتی قابل‌آزمون</small></article>
   <article class="radar-node radar-gate"><span class="radar-number">۰۳</span><span class="radar-node-icon">✓</span><h3>دروازه کنترل پیش از ورود</h3><p>آیا ستاپ با قوانینت منطبق است؟ خبر پرریسک نزدیک نیست؟ حد ضرر و دلیل ورود روشن است؟</p><small>اگر پاسخ منفی است: عدم ورود و ثبت دلیل</small></article>
@@ -743,7 +764,7 @@ html[dir="ltr"] .radar-flow-grid>.radar-node{text-align:left}
 <section class="section radar-flow" id="radar-process-en">
  <div class="section-head"><div class="kicker">NAMELLO / RADAR TRADING LOOP</div><h2>The trader’s radar: from market scan to performance optimization</h2><p class="lead">A repeatable cycle that turns market observation into controlled decisions, recorded data, and learning. It aims to improve process quality—not guarantee profits.</p></div>
  <div class="radar-flow-intro"><span class="radar-pulse"></span><div><strong>The trader’s core loop</strong><small>Each stage should produce evidence that can be reviewed in the next stage.</small></div><span class="radar-loop-tag">SCAN → PLAN → EXECUTE → REVIEW → OPTIMIZE</span></div>
- <div class="radar-flow-grid" dir="ltr">
+ <div class="radar-flow-grid" dir="ltr"><svg class="radar-ribbon-arrows" viewBox="0 0 1000 900" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="radarRibbon" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#76bda0"/><stop offset=".5" stop-color="#b4f0d7"/><stop offset="1" stop-color="#2b9674"/></linearGradient><marker id="radarRibbonHead" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 Q3 5 0 0" fill="#83d8b7"/></marker></defs><g fill="none" stroke="url(#radarRibbon)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#radarRibbonHead)"><path d="M690 150 C670 125 650 125 630 150"/><path d="M370 150 C350 125 330 125 310 150"/><path d="M170 270 C115 290 115 330 170 350"/><path d="M310 450 C330 475 350 475 370 450"/><path d="M630 450 C650 475 670 475 690 450"/><path d="M830 570 C885 590 885 630 830 650"/><path d="M690 750 C670 775 650 775 630 750"/><path d="M370 750 C350 775 330 775 310 750"/></g></svg>
   <article class="radar-node radar-start"><span class="radar-number">01</span><span class="radar-node-icon">⌖</span><h3>Scan the market radar</h3><p>Review active sessions, trend and price structure, volatility, currency strength, and economic events.</p><small>Output: a watchlist and scenarios to investigate</small></article>
   <article class="radar-node"><span class="radar-number">02</span><span class="radar-node-icon">◎</span><h3>Define the setup and edge</h3><p>Specify entry conditions, timeframe, direction, invalidation point, and expected reward-to-risk before acting.</p><small>Output: a testable trading plan</small></article>
   <article class="radar-node radar-gate"><span class="radar-number">03</span><span class="radar-node-icon">✓</span><h3>Pre-trade decision gate</h3><p>Does the setup meet your rules? Is high-impact news imminent? Are the stop and rationale clear?</p><small>If not: stand aside and record why</small></article>
