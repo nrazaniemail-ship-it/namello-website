@@ -77,6 +77,6 @@ calcSize();calcRR();calcPL();calcMargin();calcCompound();calcDrawdown();updateCl
 
 const glossarySearch=$('glossary-search');
 glossarySearch.addEventListener('input',()=>{const q=glossarySearch.value.trim().toLocaleLowerCase();let count=0;document.querySelectorAll('.term').forEach(card=>{const hay=(card.dataset.terms+' '+card.textContent).toLocaleLowerCase();const show=hay.includes(q);card.hidden=!show;if(show)count++;});$('term-count').textContent=(document.documentElement.lang==='fa'?fmt(count)+' اصطلاح':count+' terms');$('glossary-empty').hidden=count!==0;});
-$('clear-review').addEventListener('click',()=>{});
+
 
 </script></body></html>
