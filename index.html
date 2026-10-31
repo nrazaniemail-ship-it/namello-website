@@ -935,7 +935,7 @@ setLanguage(saved);
     };
     const p1=edge(ra,ac,1),p2=edge(rb,bc,-1);
     // Keep the existing ribbon styling, but route each connector with straight segments and at most one 90-degree turn.
-    const corner=Math.abs(dx)>=Math.abs(dy)?{x:p2.x,y:p1.y}:{x:p1.x,y:p2.y};
+    const corner={x:p2.x,y:p1.y}; // horizontal first, then a 90-degree turn, then vertical
     const d='M '+ns(p1.x)+' '+ns(p1.y)+' L '+ns(corner.x)+' '+ns(corner.y)+' L '+ns(p2.x)+' '+ns(p2.y);
     paths.push(d);
     const tx=p2.x-corner.x,ty=p2.y-corner.y,tl=Math.hypot(tx,ty)||1,vx=tx/tl,vy=ty/tl,px=-vy,py=vx;
