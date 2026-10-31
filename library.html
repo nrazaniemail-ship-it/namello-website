@@ -89,9 +89,9 @@ const $=id=>document.getElementById(id),num=id=>Number($(id).value),fmt=n=>Numbe
 
 const themeToggle=$('theme-toggle');
 function applyTheme(theme){document.documentElement.dataset.theme=theme;const light=theme==='light';themeToggle.textContent=light?'☾ تیره':'☀ روشن';themeToggle.setAttribute('aria-label',light?'فعال‌سازی پوسته تیره':'فعال‌سازی پوسته روشن');themeToggle.setAttribute('aria-pressed',String(light));}
-let savedTheme='dark';try{savedTheme=localStorage.getItem('namello-theme-library')||'dark';}catch(e){}
+let savedTheme='dark';try{savedTheme=localStorage.getItem('namello-theme')||'dark';}catch(e){}
 applyTheme(savedTheme==='light'?'light':'dark');
-themeToggle.addEventListener('click',()=>{const next=document.documentElement.dataset.theme==='light'?'dark':'light';applyTheme(next);try{localStorage.setItem('namello-theme-library',next);}catch(e){}});
+themeToggle.addEventListener('click',()=>{const next=document.documentElement.dataset.theme==='light'?'dark':'light';applyTheme(next);try{localStorage.setItem('namello-theme',next);}catch(e){}});
 
 function calcSize(){const riskAmt=num('balance')*num('risk')/100,den=num('stop')*num('pipvalue'),v=den>0?riskAmt/den:NaN;$('size-result').textContent=(document.documentElement.lang==='fa'?'حجم تقریبی: ':'Estimated size: ')+(Number.isFinite(v)?fmt(v)+' lots':'ورودی نامعتبر');}
 function calcRR(){const e=num('entry'),s=num('sl'),t=num('tp'),d=$('direction').value,loss=d==='long'?e-s:s-e,gain=d==='long'?t-e:e-t;$('rr-result').textContent=loss>0&&gain>0?(document.documentElement.lang==='fa'?'نسبت ریسک به بازده: 1 : ':'Risk/reward: 1 : ')+fmt(gain/loss):(document.documentElement.lang==='fa'?'قیمت‌ها با جهت معامله سازگار نیستند':'Prices do not match trade direction');}
