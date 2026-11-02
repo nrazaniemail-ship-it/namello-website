@@ -1390,4 +1390,52 @@ setLanguage(saved);
   });
 })();
 </script>
+
+<style id="namello-capsule-frame-fit-v2">
+/* The capsule frame must hug the image's actual rendered width. */
+.hero-product-shot{
+  display:inline-flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-self:center!important;
+  align-self:center!important;
+  width:fit-content!important;
+  max-width:100%!important;
+  min-width:0!important;
+  padding:8px!important;
+  box-sizing:border-box!important;
+}
+.hero-product-shot a{
+  display:inline-block!important;
+  width:fit-content!important;
+  max-width:100%!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  line-height:0!important;
+}
+.hero-product-shot img{
+  display:block!important;
+  width:auto!important;
+  height:auto!important;
+  max-width:100%!important;
+  max-height:clamp(280px,40vw,490px)!important;
+  object-fit:contain!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+@media(max-width:850px){
+  .hero-product-shot img{max-height:clamp(260px,62vw,430px)!important}
+}
+@media(max-width:560px){
+  .hero-product-shot{padding:6px!important}
+  .hero-product-shot img{max-height:360px!important}
+}
+</style>
+
 </body></html>
