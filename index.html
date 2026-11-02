@@ -744,6 +744,41 @@ html[data-theme="light"] #namello-market-strip-en.market-error #market-status-en
 .radar-app-ref b{color:#9ce8ce;font-weight:850}
 .radar-app-ref a{color:#a9d4ff;text-decoration:underline;text-underline-offset:3px;font-weight:750}
 .radar-app-ref a:hover{color:#d7ebff}
+
+/* Capsule hero frame: size the background to the rendered image, not a fixed-height panel. */
+.hero-product-shot{
+  width:fit-content;
+  max-width:100%;
+  height:fit-content;
+  justify-self:center;
+  padding:10px;
+  border-radius:22px;
+}
+.hero-product-shot a{
+  display:inline-block;
+  max-width:100%;
+  border:0;
+  border-radius:13px;
+  background:transparent;
+  box-shadow:none;
+}
+.hero-product-shot img{
+  display:block;
+  width:auto;
+  height:auto;
+  max-width:100%;
+  max-height:clamp(280px,40vw,490px);
+  object-fit:contain;
+  background:transparent;
+}
+@media(max-width:850px){
+  .hero-product-shot img{max-height:clamp(280px,62vw,430px)}
+}
+@media(max-width:560px){
+  .hero-product-shot{padding:8px;border-radius:17px}
+  .hero-product-shot img{max-height:360px}
+}
+
 </style>
 <style id="namello-hero-capsule-clean">.hero-capsule-visual{min-width:0;display:flex;align-items:center;justify-content:center;background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;box-shadow:none!important;overflow:visible}.hero-capsule-visual img{display:block;width:100%;height:clamp(310px,40vw,490px);object-fit:contain;object-position:center;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important}@media(max-width:850px){.hero-capsule-visual img{height:clamp(260px,65vw,420px)}}@media(max-width:560px){.hero-capsule-visual img{height:330px}}</style>
 <style id="namello-capsule-edge-blend">.hero-capsule-visual img{-webkit-mask-image:radial-gradient(ellipse 86% 86% at 50% 50%,#000 69%,rgba(0,0,0,.92) 77%,rgba(0,0,0,.48) 89%,transparent 100%);mask-image:radial-gradient(ellipse 86% 86% at 50% 50%,#000 69%,rgba(0,0,0,.92) 77%,rgba(0,0,0,.48) 89%,transparent 100%)}@media(max-width:560px){.hero-capsule-visual img{-webkit-mask-image:radial-gradient(ellipse 88% 88% at 50% 50%,#000 70%,rgba(0,0,0,.9) 80%,rgba(0,0,0,.4) 92%,transparent 100%);mask-image:radial-gradient(ellipse 88% 88% at 50% 50%,#000 70%,rgba(0,0,0,.9) 80%,rgba(0,0,0,.4) 92%,transparent 100%)}}</style>
