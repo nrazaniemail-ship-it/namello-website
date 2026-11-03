@@ -988,6 +988,94 @@ header{padding:10px 0 0!important;background:rgba(8,17,30,.97)!important;border-
 }
 @media(max-width:420px){.ff-nav>a,.ff-nav .nav-menu>summary{padding-inline:9px!important}.ff-nav .nav-menu>summary{gap:6px}}
 </style>
+<style id="namello-light-theme-contrast-audit">
+/* Final light-theme audit: accessible contrast and dropdown-safe navigation. */
+html[data-theme="light"]{
+ --bg:#f3f7fb!important;--surface:#ffffff!important;--surface2:#e8f0f8!important;
+ --line:#cbd8e5!important;--text:#172b45!important;--muted:#4c6279!important;
+ --blue:#145fa8!important;--mint:#087568!important;
+}
+html[data-theme="light"] body{color:#172b45!important}
+html[data-theme="light"] main{color:#172b45!important}
+html[data-theme="light"] main :where(p,li,small,figcaption,label,dt,dd,.lead,.preview-note,.disclaimer){
+ color:#42586f!important;
+}
+html[data-theme="light"] main :where(h1,h2,h3,h4,strong,b){color:#173a60}
+html[data-theme="light"] main a:not(.btn){color:#075fa8!important}
+html[data-theme="light"] main a:not(.btn):hover{color:#06477f!important}
+html[data-theme="light"] .tagline,
+html[data-theme="light"] footer,
+html[data-theme="light"] .disclaimer,
+html[data-theme="light"] .preview-note{color:#4c6279!important}
+html[data-theme="light"] .brand .brand-fa{color:#1269b3!important}
+html[data-theme="light"] .brand .brand-fa+span{color:#173a60!important}
+html[data-theme="light"] .hero .hero-gradient{color:#1269b3!important}
+html[data-theme="light"] .hero .eyebrow{color:#805b00!important}
+html[data-theme="light"] .section h2,
+html[data-theme="light"] .card h3,
+html[data-theme="light"] .contact h2{color:#173a60!important}
+html[data-theme="light"] .hero-highlight b{color:#805b00!important}
+html[data-theme="light"] .hero-highlight span,
+html[data-theme="light"] .card p,
+html[data-theme="light"] .step p,
+html[data-theme="light"] .faq details p{color:#42586f!important}
+html[data-theme="light"] .parameter-highlight{background:#eaf5f2!important;color:#173a60!important;border-color:#9fcfc1!important}
+html[data-theme="light"] .parameter-highlight strong{color:#145d50!important}
+html[data-theme="light"] .radar-app-ref{background:#eef5f8!important;border-color:#c5d8e1!important;color:#344e62!important}
+html[data-theme="light"] .radar-app-ref b{color:#126b5b!important}
+html[data-theme="light"] .radar-app-ref a{color:#075fa8!important}
+html[data-theme="light"] .radar-disclaimer{background:#fff8e9!important;color:#674d24!important;border-color:#e4d3ae!important}
+html[data-theme="light"] .intelligence-label{color:#126b62!important}
+html[data-theme="light"] .intelligence-banner p,
+html[data-theme="light"] .intelligence-note p,
+html[data-theme="light"] .intelligence-flow span{color:#344e62!important}
+html[data-theme="light"] .market-insight-card p,
+html[data-theme="light"] .market-insight-card small,
+html[data-theme="light"] .market-insights-cta p,
+html[data-theme="light"] .market-insights-cta span{color:#42586f!important}
+html[data-theme="light"] .pro h2{color:#705000!important}
+html[data-theme="light"] .pro p{color:#4e4939!important}
+html[data-theme="light"] .contact{color:#173a60!important}
+html[data-theme="light"] .contact :where(p,li,small){color:#42586f!important}
+
+/* The top menu now has explicit light and dark palettes, including native summary tabs. */
+html[data-theme="light"] header{background:#fff!important;border-color:#cbd8e5!important}
+html[data-theme="light"] nav.ff-nav{border-top-color:#d5dfe9!important;overflow:visible!important}
+html[data-theme="light"] nav.ff-nav>a,
+html[data-theme="light"] nav.ff-nav .nav-menu>summary{
+ color:#263f58!important;background:transparent!important;border-bottom-color:transparent!important;
+}
+html[data-theme="light"] nav.ff-nav>a:hover,
+html[data-theme="light"] nav.ff-nav .nav-menu>summary:hover,
+html[data-theme="light"] nav.ff-nav .nav-menu[open]>summary{
+ color:#104f88!important;background:#eaf2f9!important;border-bottom-color:#2678bd!important;
+}
+html[data-theme="light"] nav.ff-nav>a.nav-pro{color:#075fa8!important}
+html[data-theme="light"] nav.ff-nav>a.nav-pro:hover{color:#06477f!important}
+html[data-theme="light"] nav.ff-nav .nav-dropdown{
+ background:#fff!important;border-color:#cbd8e5!important;border-top-color:#2678bd!important;
+ box-shadow:0 14px 32px #183b5a24!important;
+}
+html[data-theme="light"] nav.ff-nav .nav-dropdown a{
+ color:#263f58!important;background:transparent!important;
+}
+html[data-theme="light"] nav.ff-nav .nav-dropdown a:hover,
+html[data-theme="light"] nav.ff-nav .nav-dropdown a.selected{
+ color:#104f88!important;background:#eaf2f9!important;
+}
+html[data-theme="light"] nav.ff-nav a:focus-visible,
+html[data-theme="light"] nav.ff-nav summary:focus-visible{
+ outline:3px solid #176fc1!important;outline-offset:-3px!important;
+}
+@media(min-width:761px){
+ nav.ff-nav{overflow:visible!important;overflow-x:visible!important;overflow-y:visible!important}
+ nav.ff-nav .nav-dropdown{z-index:100;top:100%}
+}
+@media(max-width:760px){
+ nav.ff-nav{overflow-x:auto!important;overflow-y:hidden!important}
+ nav.ff-nav .nav-dropdown{position:fixed;z-index:120;max-height:min(65vh,420px);overflow-y:auto}
+}
+</style>
 </head>
 <body><a class="skip-link" href="#content-fa">رفتن به محتوای اصلی</a><svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
 <symbol id="nm-edit" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4Z"/></symbol>
