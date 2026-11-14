@@ -90,16 +90,63 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Namello Trading Library | Free Trading Calculators",
-  "description": "Explore free trading calculators for position sizing, risk/reward, profit and loss, margin, and market sessions.",
-  "url": "https://nrazaniemail-ship-it.github.io/namello-website/en/library.html",
-  "inLanguage": "en",
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "Namello",
-    "url": "https://nrazaniemail-ship-it.github.io/namello-website/en/"
-  }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://nrazaniemail-ship-it.github.io/namello-website/#organization",
+      "name": "Namello",
+      "url": "https://nrazaniemail-ship-it.github.io/namello-website/",
+      "logo": "https://nrazaniemail-ship-it.github.io/namello-website/assets/screenshots/Namello.png"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://nrazaniemail-ship-it.github.io/namello-website/en/library.html#website",
+      "name": "Namello",
+      "url": "https://nrazaniemail-ship-it.github.io/namello-website/en/library.html",
+      "publisher": {
+        "@id": "https://nrazaniemail-ship-it.github.io/namello-website/#organization"
+      },
+      "inLanguage": [
+        "en"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Namello Trading Library | Free Trading Calculators",
+      "description": "Explore free trading calculators for position sizing, risk/reward, profit and loss, margin, and market sessions.",
+      "url": "https://nrazaniemail-ship-it.github.io/namello-website/en/library.html",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://nrazaniemail-ship-it.github.io/namello-website/en/#website"
+      },
+      "@id": "https://nrazaniemail-ship-it.github.io/namello-website/en/library.html#webpage",
+      "about": {
+        "@id": "https://nrazaniemail-ship-it.github.io/namello-website/#software"
+      },
+      "breadcrumb": {
+        "@id": "https://nrazaniemail-ship-it.github.io/namello-website/en/library.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://nrazaniemail-ship-it.github.io/namello-website/en/library.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Namello",
+          "item": "https://nrazaniemail-ship-it.github.io/namello-website/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Trading Library",
+          "item": "https://nrazaniemail-ship-it.github.io/namello-website/en/library.html"
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>
