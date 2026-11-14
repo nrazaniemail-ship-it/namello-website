@@ -1,0 +1,7 @@
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://nrazaniemail-ship-it.github.io/namello-website/sitemap.xml

@@ -5,6 +5,9 @@
 <meta name="description" content="نملو؛ ژورنال معاملاتی برای ثبت معاملات، شناخت عملکرد و رشد آگاهانه.">
 <meta name="theme-color" content="#0b1220"><meta name="color-scheme" content="light dark">
 <link rel="canonical" href="https://nrazaniemail-ship-it.github.io/namello-website/">
+<link rel="alternate" hreflang="fa" href="https://nrazaniemail-ship-it.github.io/namello-website/">
+<link rel="alternate" hreflang="en" href="https://nrazaniemail-ship-it.github.io/namello-website/en/">
+<link rel="alternate" hreflang="x-default" href="https://nrazaniemail-ship-it.github.io/namello-website/">
 <link rel="icon" type="image/png" href="assets/screenshots/Namello.png">
 <link rel="apple-touch-icon" href="assets/screenshots/Namello.png">
 <meta property="og:type" content="website">
@@ -1619,9 +1622,8 @@ if('IntersectionObserver' in window){
 }
 
 faBtn.addEventListener('click',()=>setLanguage('fa'));
-enBtn.addEventListener('click',()=>setLanguage('en'));
-let saved='fa';try{saved=localStorage.getItem('namello-language')||'fa'}catch(e){}
-setLanguage(saved);
+enBtn.addEventListener('click',()=>{window.location.href='en/';});
+setLanguage('fa');
 })();
 </script>
 
