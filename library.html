@@ -90,16 +90,62 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "کتابخانه معامله‌گری | Namello",
-  "description": "کتابخانه نملو؛ ابزارهای رایگان مدیریت ریسک، محاسبه حجم معامله، نسبت ریسک به بازده و زمان‌بندی بازارهای جهانی.",
-  "url": "https://nrazaniemail-ship-it.github.io/namello-website/library.html",
-  "inLanguage": "fa",
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "Namello",
-    "url": "https://nrazaniemail-ship-it.github.io/namello-website/"
-  }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://nrazaniemail-ship-it.github.io/namello-website/#organization",
+      "name": "Namello",
+      "url": "https://nrazaniemail-ship-it.github.io/namello-website/",
+      "logo": "https://nrazaniemail-ship-it.github.io/namello-website/assets/screenshots/Namello.png"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://nrazaniemail-ship-it.github.io/namello-website/#website",
+      "name": "Namello",
+      "url": "https://nrazaniemail-ship-it.github.io/namello-website/",
+      "publisher": {
+        "@id": "https://nrazaniemail-ship-it.github.io/namello-website/#organization"
+      },
+      "inLanguage": [
+        "fa"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "name": "کتابخانه معامله‌گری | Namello",
+      "description": "کتابخانه نملو؛ ابزارهای رایگان مدیریت ریسک، محاسبه حجم معامله، نسبت ریسک به بازده و زمان‌بندی بازارهای جهانی.",
+      "url": "https://nrazaniemail-ship-it.github.io/namello-website/library.html",
+      "inLanguage": "fa",
+      "isPartOf": {
+        "@id": "https://nrazaniemail-ship-it.github.io/namello-website/#website"
+      },
+      "@id": "https://nrazaniemail-ship-it.github.io/namello-website/library.html#webpage",
+      "about": {
+        "@id": "https://nrazaniemail-ship-it.github.io/namello-website/#software"
+      },
+      "breadcrumb": {
+        "@id": "https://nrazaniemail-ship-it.github.io/namello-website/library.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://nrazaniemail-ship-it.github.io/namello-website/library.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "نملو",
+          "item": "https://nrazaniemail-ship-it.github.io/namello-website/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "کتابخانه معامله‌گری",
+          "item": "https://nrazaniemail-ship-it.github.io/namello-website/library.html"
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>
