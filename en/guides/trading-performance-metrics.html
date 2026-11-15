@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trading Performance Metrics: Expectancy, Profit Factor, Drawdown and R | Namello</title>
+<meta name="description" content="Understand key trading journal metrics, how they are calculated, what they reveal about a strategy, and why sample quality and trading costs matter.">
+<link rel="canonical" href="https://nrazaniemail-ship-it.github.io/namello-website/en/guides/trading-performance-metrics.html">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="article"><meta property="og:site_name" content="Namello"><meta property="og:title" content="Trading Performance Metrics: Expectancy, Profit Factor, Drawdown and R | Namello"><meta property="og:description" content="Understand key trading journal metrics, how they are calculated, what they reveal about a strategy, and why sample quality and trading costs matter."><meta property="og:url" content="https://nrazaniemail-ship-it.github.io/namello-website/en/guides/trading-performance-metrics.html"><meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Trading Performance Metrics: Expectancy, Profit Factor, Drawdown and R | Namello"><meta name="twitter:description" content="Understand key trading journal metrics, how they are calculated, what they reveal about a strategy, and why sample quality and trading costs matter.">
+<style>
+:root{color-scheme:dark;--bg:#08111f;--panel:#101d30;--line:#2d435e;--text:#f2f6fc;--muted:#b9c7d8;--gold:#edbd68;--mint:#82dfbd}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#254365 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.85 Inter,"Segoe UI",Arial,sans-serif}
+a{color:var(--mint);text-decoration:none}a:hover{color:var(--gold)}.wrap{width:min(900px,92%);margin:auto}
+header{border-bottom:1px solid var(--line);background:#08111fee}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:15px 0}.brand{font-size:1.4rem;font-weight:900;color:var(--text)}.brand span{color:var(--gold)}nav{display:flex;gap:16px;flex-wrap:wrap;font-size:.9rem}
+main{padding:52px 0 70px}.eyebrow{color:var(--gold);font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:clamp(2rem,5vw,3.25rem);line-height:1.2;margin:12px 0 16px;letter-spacing:-.03em}h2{font-size:1.55rem;line-height:1.35;margin:36px 0 12px;color:var(--gold)}h3{font-size:1.12rem;margin:22px 0 8px;color:var(--mint)}
+.lead{font-size:1.13rem;color:var(--muted);max-width:780px}.meta{font-size:.86rem;color:var(--muted);margin:18px 0 30px}
+article p,article li{color:#d2dce8}article ul,article ol{padding-left:24px}article li{margin:8px 0}
+.panel{background:linear-gradient(145deg,#14243a,#0e1a2a);border:1px solid var(--line);border-radius:16px;padding:20px;margin:24px 0}
+.panel strong{color:var(--gold)}.formula{font-family:ui-monospace,Consolas,monospace;background:#07101c;border:1px solid var(--line);border-radius:9px;padding:12px 14px;overflow-wrap:anywhere;color:#c4f0df}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:24px 0}.card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}.card b{display:block;color:var(--gold);margin-bottom:6px}.card span{color:var(--muted);font-size:.92rem}
+.breadcrumb{font-size:.85rem;color:var(--muted);margin-bottom:22px}footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.85rem}
+@media(max-width:600px){.top{align-items:flex-start;flex-direction:column}main{padding-top:34px}h2{font-size:1.35rem}}
+</style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://nrazaniemail-ship-it.github.io/namello-website/#organization",
+      "name": "Namello",
+      "url": "https://nrazaniemail-ship-it.github.io/namello-website/"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://nrazaniemail-ship-it.github.io/namello-website/en/#website",
+      "url": "https://nrazaniemail-ship-it.github.io/namello-website/en/",
+      "name": "Namello",
+      "publisher": {
+        "@id": "https://nrazaniemail-ship-it.github.io/namello-website/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://nrazaniemail-ship-it.github.io/namello-website/en/guides/trading-performance-metrics.html#webpage",
+      "url": "https://nrazaniemail-ship-it.github.io/namello-website/en/guides/trading-performance-metrics.html",
+      "name": "Trading Performance Metrics: Expectancy, Profit Factor, Drawdown and R",
+      "description": "Understand key trading journal metrics, how they are calculated, what they reveal about a strategy, and why sample quality and trading costs matter.",
+      "isPartOf": {
+        "@id": "https://nrazaniemail-ship-it.github.io/namello-website/en/#website"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Article",
+      "@id": "https://nrazaniemail-ship-it.github.io/namello-website/en/guides/trading-performance-metrics.html#article",
+      "headline": "Trading Performance Metrics: Expectancy, Profit Factor, Drawdown and R",
+      "description": "Understand key trading journal metrics, how they are calculated, what they reveal about a strategy, and why sample quality and trading costs matter.",
+      "mainEntityOfPage": {
+        "@id": "https://nrazaniemail-ship-it.github.io/namello-website/en/guides/trading-performance-metrics.html#webpage"
+      },
+      "publisher": {
+        "@id": "https://nrazaniemail-ship-it.github.io/namello-website/#organization"
+      },
+      "datePublished": "2026-11-15",
+      "dateModified": "2026-11-15",
+      "inLanguage": "en",
+      "author": {
+        "@type": "Organization",
+        "name": "Namello"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://nrazaniemail-ship-it.github.io/namello-website/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Trading Guides",
+          "item": "https://nrazaniemail-ship-it.github.io/namello-website/en/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Trading Performance Metrics: Expectancy, Profit Factor, Drawdown and R",
+          "item": "https://nrazaniemail-ship-it.github.io/namello-website/en/guides/trading-performance-metrics.html"
+        }
+      ]
+    }
+  ]
+}</script>
+</head>
+<body>
+<header><div class="wrap top"><a class="brand" href="../index.html">Nam<span>ello</span></a><nav aria-label="Main navigation"><a href="../index.html">Home</a><a href="../library.html">Trading Library</a><a href="index.html">Trading Guides</a><a href="../index.html#contact-en">Contact</a></nav></div></header>
+<main class="wrap"><div class="breadcrumb"><a href="../index.html">Home</a> / <a href="index.html">Trading Guides</a> / Trading Performance Metrics: Expectancy, Profit Factor, Drawdown and R</div>
+<div class="eyebrow">PERFORMANCE ANALYTICS · METRICS</div><h1>Trading Performance Metrics: Expectancy, Profit Factor, Drawdown and R</h1><p class="lead">No single statistic can describe a trading strategy. A useful performance review combines return, risk, consistency, execution and the quality of the underlying sample.</p><div class="meta">Updated 2026-11-15 · Educational guide · Not financial advice</div>
+<article>
+<h2>1. Win rate: how often trades win</h2>
+<p>Win rate is the number of profitable trades divided by the total number of trades. It describes frequency, not profitability. A system can win often and still lose money if its average loss is much larger than its average win.</p>
+<div class="formula">Win rate = Winning trades ÷ Total trades × 100%</div>
+<h2>2. Average win, average loss and expectancy</h2>
+<p>Expectancy estimates the average result per trade over a sample. Express all components in the same unit—currency, percentage or R—and use net results consistently.</p>
+<div class="formula">Expectancy = (Win rate × Average win) − (Loss rate × Average loss)</div>
+<p>For example, a 45% win rate with an average win of 2R and an average loss of 1R gives an estimated expectancy of +0.35R per trade before any costs not already included. This is a sample estimate, not a promise about future trades.</p>
+<h2>3. Profit factor: gross wins relative to gross losses</h2>
+<div class="formula">Profit factor = Gross profit ÷ Absolute gross loss</div>
+<p>A value above 1 means gross profits exceeded gross losses in the measured sample. It does not show the size of drawdowns, the number of trades, or whether a few outliers dominate the result. Include commissions and other costs consistently when assessing net performance.</p>
+<h2>4. Drawdown: the path matters</h2>
+<p>Drawdown measures a decline from a previous peak to a later trough. Maximum drawdown is the largest such decline over the selected period. State whether it is calculated from balance or equity, and whether it is measured in currency or percentage. Recovery from a loss is asymmetric: a 20% decline requires a 25% gain on the reduced capital just to return to the starting level.</p>
+<h2>5. R-multiple: compare outcomes against initial risk</h2>
+<div class="formula">R-multiple = Net trade result ÷ Initial monetary risk</div>
+<p>R-multiples make trades with different position sizes easier to compare. They are meaningful only when initial risk is defined consistently. If the initial stop or risk amount is missing or changed retrospectively, the calculated R may be misleading.</p>
+<h2>6. MFE and MAE: inspect trade movement</h2>
+<p><strong>Maximum favourable excursion (MFE)</strong> describes the greatest unrealized move in your favour during a trade. <strong>Maximum adverse excursion (MAE)</strong> describes the greatest unrealized move against you. They can help review stop placement and exits, but accurate values require sufficiently granular historical price data, correct timestamps and instrument specifications. A statement alone may not contain enough information.</p>
+<h2>7. Sample size and distribution</h2>
+<p>Always show the number of trades and the date range beside a metric. Inspect median outcomes, losing streaks, outliers and concentration of profit. Break results down by strategy, symbol, session and market condition only when group sizes are large enough to be informative. Small samples can produce unstable estimates.</p>
+<h2>8. Build a balanced scorecard</h2>
+<p>A practical review can include:</p>
+<ul><li>Net return and average result per trade</li><li>Win rate, average win and average loss</li><li>Expectancy and profit factor</li><li>Maximum drawdown and recovery time</li><li>R-multiple distribution</li><li>Trading costs and execution quality</li><li>Rule adherence and completeness of journal records</li></ul>
+<p>Read these measures together. A higher return may come with a larger drawdown; a higher win rate may come with rare but severe losses. The right interpretation depends on objectives, risk limits and the reliability of the data.</p>
+<h2>Explore the Namello trading library</h2>
+<p>Use the <a href="../library.html#calculators">Namello trading calculators</a> for educational estimates of position size, risk/reward, profit and loss, margin, compound growth and drawdown. Calculator outputs depend on the inputs and assumptions supplied; verify contract details with your broker.</p>
+</article>
+<div class="panel"><strong>Put the ideas into practice</strong><p>Use a consistent journal to capture the context, risk, execution and outcome of each trade. <a href="../index.html#preview-en">Explore the Namello trading journal</a> or visit the <a href="../library.html">free trading calculators</a>.</p></div>
+<div class="cards"><a class="card" href="trading-journal-guide.html"><b>Build a trading journal</b><span>Create a repeatable review process.</span></a><a class="card" href="mt5-statement-analysis.html"><b>Analyze an MT5 statement</b><span>Understand what a trading report can and cannot tell you.</span></a><a class="card" href="trading-performance-metrics.html"><b>Understand performance metrics</b><span>Read expectancy, drawdown, R-multiples and more.</span></a></div>
+</main><footer><div class="wrap">Namello · Trading records and performance review. Educational information only; not investment advice.</div></footer>
+</body></html>
