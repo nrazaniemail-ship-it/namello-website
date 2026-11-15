@@ -36,4 +36,28 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://nrazaniemail-ship-it.github.io/namello-website/en/guides/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nrazaniemail-ship-it.github.io/namello-website/en/guides/trading-journal-guide.html</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nrazaniemail-ship-it.github.io/namello-website/en/guides/mt5-statement-analysis.html</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nrazaniemail-ship-it.github.io/namello-website/en/guides/trading-performance-metrics.html</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
